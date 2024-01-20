@@ -1,87 +1,52 @@
 ---
-layout: cv
-title: Isaac Newtons's CV
+layout: resume
+title: "Logan Clark"
 ---
-# Isaac Newton
-Physicist, Mathematician, Cambridge professor.
+<!-- [MarkDown Basics](https://quarto.org/docs/authoring/markdown-basics.html#links-images) -->
 
-<div id="webaddress">
-<a href="isaac@applesdofall.org">isaac@applesdofall.org</a>
-| <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a>
-</div>
+(208)530-1980 | loganjclark@gmail.com | www.linkedin.com/in/logan-clark
 
+### Education
 
-## Currently
+Bachelors of Science | Brigham Young University - Idaho | Rexburg, Idaho January 2021 - Present</p><p>
+- Major in Computer Information Technology</p><p>
+- GPA: 3.8</p>
 
-Standing on the shoulders of giants
+Diploma, Skyline High School</p><p>
+- Participated in baseball all four years.
+- Received a certification in Word and PowerPoint.</p>
 
-### Specialized in
+### Technical Skills
+- Programming Languages: C# | Python | MySQL</p><p>
+- Experience with CLI to solve problems with databases as well as creating and managing filesytems. | Able to work proficiently in a team scenario as well as manage a team.</p>
 
-Laws of motion, gravitation, minting coins, disliking [Robert Hooke](http://en.wikipedia.org/wiki/Robert_Hooke)
+### Projects
 
+- Wrote a contact book application using python to store personal contacts. This project included locally storing the data, adding new contact records, deleting, and modifying existing contact records and the ablility to look up information by contact phone number. </p><p>
+- Developed a point tracking system for stores using C#. Functionality delivered included the ability to parse a receipt and store specific information in a text file as well as keeping a record of point totals and your reward level.
+- Designed a database to be used by a Major League Baseball team (MLB).  This includes an Entity Relationship Diagram (ERD) that shows the relationships between all the different tables.
+- Currently I am working on a website for my web frontend development class. I am coding it in HTML, CSS, and JavaScript.
 
-### Research interests
+### Experience
 
-Cooling, power series, optics, alchemy, planetary motions, apples.
+**Sales Representative** | *ZAGG |* Idaho Falls, Idaho 2021- Present</p><p>
+- Accomplished daily tasks that were assigned to me.
+- Effectively communicate sales and promotions.
+- Responsible for closing and counting the till.
+- Fixed customers phones.
+- Problem solved why phones were not working.
 
+**Sales Representative** | *Aptive Enviromental |* Fort Worth, Texas Summer 2022</p><p>
+- Sold pest control door to door.
+- Effectively communicated to customers about the service and products.
+- Was independently contracted.
+- Was able to work alone efficiently.
 
-## Education
-
-`1654-1660`
-__The King's School, Grantham.__
-
-`June 1661 - now`
-__Trinity College, Cambridge__
-
-- Sizar
-
-`1667 - death`
-__Trinity College, Cambridge__
-
-- Fellow
-
-
-
-## Awards
-
-`2012`
-President, *Royal Society*, London, UK
-
-Associate, *French Academy of Science*, Paris, France
-
-
-
-## Publications
-
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-
-### Journals
-
-`1669`
-Newton Sir I, De analysi per æquationes numero terminorum infinitas. 
-
-`1669`
-Lectiones opticæ.
-
-etc. etc. etc.
-
-### Patents
-
-`2012`
-Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml) patent 001
-
-
-## Occupation
-
-`1600`
-__Royal Mint__, London
-
-- Warden
-- Minted coins
-
-`1600`
-__Lucasian professor of Mathematics__, Cambridge University
-
+**Missionary** | *Church of Jesus Christ of Latter-day Saints |* Sacramento, California 2018 - 2020</p><p>
+- Accomplished daily tasks on a schedule.
+- Provided service to the community and others.
+- In a leadership position to help guide and direct those in my area.
+- Able to overcome challenges and hardships.
 
 
 <!-- ### Footer
