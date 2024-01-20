@@ -1,8 +1,9 @@
-project: 
+project:
   type: website
 
 website:
-  title: "Logan Clark Images/favicon.png"
+  title: "Logan Clark Data Science Portfolio"
+  favicon: Images/favicon.png
   back-to-top-navigation: true
   repo-url: https://github.com/loggs44/my_portfolio
   #repo-actions: [issue] #if you want to allow others to report issues on your site uncomment this line
