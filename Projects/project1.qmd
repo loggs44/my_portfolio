@@ -129,7 +129,7 @@ fig.show()
 
 _include figures in chunks and discuss your findings in the figure._
 
-## QUESTION|TASK 3
+## Bible Names
 
 Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?
 
@@ -200,7 +200,7 @@ fig.show()
 
 _include figures in chunks and discuss your findings in the figure._
 
-## QUESTION|TASK 4
+## Popular Movie Name
 
 Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
 
