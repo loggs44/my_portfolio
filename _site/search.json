@@ -91,9 +91,9 @@
   {
     "objectID": "Projects/project2.html",
     "href": "Projects/project2.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - What’s in a name?",
     "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 2"
@@ -102,9 +102,9 @@
   {
     "objectID": "Projects/project2.html#elevator-pitch",
     "href": "Projects/project2.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - What’s in a name?",
     "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 2"
@@ -230,7 +230,7 @@
   {
     "objectID": "Projects/project1.html",
     "href": "Projects/project1.html",
-    "title": "Client Report - What’s in a name?",
+    "title": "Client Report - Whats in a name?",
     "section": "",
     "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
@@ -241,7 +241,7 @@
   {
     "objectID": "Projects/project1.html#elevator-pitch",
     "href": "Projects/project1.html#elevator-pitch",
-    "title": "Client Report - What’s in a name?",
+    "title": "Client Report - Whats in a name?",
     "section": "",
     "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
@@ -250,33 +250,44 @@
     ]
   },
   {
-    "objectID": "Projects/project1.html#questiontask-1",
-    "href": "Projects/project1.html#questiontask-1",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n::: {#cell-Q1 chart .cell execution_count=4}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::\n::: {#cell-Q1 table .cell .tbl-cap-location-top tbl-cap=‘Not much of a table’ execution_count=5}\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0\n\n\n\n\n\n\n:::",
+    "objectID": "Projects/project1.html#birth-name",
+    "href": "Projects/project1.html#birth-name",
+    "title": "Client Report - Whats in a name?",
+    "section": "Birth Name",
+    "text": "Birth Name\nHow does your name at your birth year compare to its use historically?\nFor my name and it’s use historically it is in the middle of it’s popularity. From 2000 and on you can see a huge increase in use of the name of Logan.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Logan\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Logan Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2000,\n        x1=2000,\n        y0=0,\n        y1=10000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2000,\n    y=10000,\n    text='Birth Year',\n    showarrow=True,\n    arrowhead=1,\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
     ]
   },
   {
-    "objectID": "Projects/project1.html#questiontask-2",
-    "href": "Projects/project1.html#questiontask-2",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n::: {#cell-Q2 chart .cell execution_count=7}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::\n::: {#cell-Q2 table .cell .tbl-cap-location-top tbl-cap=‘Not much of a table’ execution_count=8}\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0\n\n\n\n\n\n\n:::",
+    "objectID": "Projects/project1.html#age-of-brittany",
+    "href": "Projects/project1.html#age-of-brittany",
+    "title": "Client Report - Whats in a name?",
+    "section": "Age of Brittany",
+    "text": "Age of Brittany\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nI would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Brittany\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Brittany Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1990,\n        x1=1990,\n        y0=0,\n        y1=40000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1990,\n    y=40000,\n    text='34 Years Old',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
     ]
   },
   {
-    "objectID": "Projects/project1.html#questiontask-3",
-    "href": "Projects/project1.html#questiontask-3",
-    "title": "Client Report - What’s in a name?",
-    "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
+    "objectID": "Projects/project1.html#bible-names",
+    "href": "Projects/project1.html#bible-names",
+    "title": "Client Report - Whats in a name?",
+    "section": "Bible Names",
+    "text": "Bible Names\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#popular-movie-name",
+    "href": "Projects/project1.html#popular-movie-name",
+    "title": "Client Report - Whats in a name?",
+    "section": "Popular Movie Name",
+    "text": "Popular Movie Name\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2001,\n        x1=2001,\n        y0=0,\n        y1=8000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2001,\n    y=8000,\n    text='Release of Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -400,58 +411,47 @@
     "text": "(208)530-1980 | loganjclark@gmail.com | www.linkedin.com/in/logan-clark\n\nEducation\nBachelors of Science | Brigham Young University - Idaho | Rexburg, Idaho January 2021 - Present\n\n\n\nMajor in Computer Information Technology\n\n\nGPA: 3.8\n\n\nDiploma, Skyline High School\n\n\n\nParticipated in baseball all four years.\nReceived a certification in Word and PowerPoint.\n\n\n\n\nTechnical Skills\n\nProgramming Languages: C# | Python | MySQL\n\n\nExperience with CLI to solve problems with databases as well as creating and managing filesytems. | Able to work proficiently in a team scenario as well as manage a team.\n\n\n\n\nProjects\n\nWrote a contact book application using python to store personal contacts. This project included locally storing the data, adding new contact records, deleting, and modifying existing contact records and the ablility to look up information by contact phone number.\n\n\nDeveloped a point tracking system for stores using C#. Functionality delivered included the ability to parse a receipt and store specific information in a text file as well as keeping a record of point totals and your reward level.\nDesigned a database to be used by a Major League Baseball team (MLB). This includes an Entity Relationship Diagram (ERD) that shows the relationships between all the different tables.\nCurrently I am working on a website for my web frontend development class. I am coding it in HTML, CSS, and JavaScript.\n\n\n\nExperience\nSales Representative | ZAGG | Idaho Falls, Idaho 2021- Present\n\n\n\nAccomplished daily tasks that were assigned to me.\nEffectively communicate sales and promotions.\nResponsible for closing and counting the till.\nFixed customers phones.\nProblem solved why phones were not working.\n\nSales Representative | Aptive Enviromental | Fort Worth, Texas Summer 2022\n\n\n\nSold pest control door to door.\nEffectively communicated to customers about the service and products.\nWas independently contracted.\nWas able to work alone efficiently.\n\nMissionary | Church of Jesus Christ of Latter-day Saints | Sacramento, California 2018 - 2020\n\n\n\nAccomplished daily tasks on a schedule.\nProvided service to the community and others.\nIn a leadership position to help guide and direct those in my area.\nAble to overcome challenges and hardships.\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "Projects/project1.html#birth-name",
-    "href": "Projects/project1.html#birth-name",
+    "objectID": "Projects/project2.html#birth-name",
+    "href": "Projects/project2.html#birth-name",
     "title": "Client Report - What’s in a name?",
     "section": "Birth Name",
     "text": "Birth Name\nHow does your name at your birth year compare to its use historically?\nFor my name and it’s use historically it is in the middle of it’s popularity. From 2000 and on you can see a huge increase in use of the name of Logan.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Logan\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Logan Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2000,\n        x1=2000,\n        y0=0,\n        y1=10000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2000,\n    y=10000,\n    text='Birth Year',\n    showarrow=True,\n    arrowhead=1,\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
-      "Project 1"
+      "Project 2"
     ]
   },
   {
-    "objectID": "Projects/project1.html#age-of-brittany",
-    "href": "Projects/project1.html#age-of-brittany",
+    "objectID": "Projects/project2.html#age-of-brittany",
+    "href": "Projects/project2.html#age-of-brittany",
     "title": "Client Report - What’s in a name?",
     "section": "Age of Brittany",
     "text": "Age of Brittany\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nI would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Brittany\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Brittany Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1990,\n        x1=1990,\n        y0=0,\n        y1=40000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1990,\n    y=40000,\n    text='34 Years Old',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
-      "Project 1"
+      "Project 2"
     ]
   },
   {
-    "objectID": "Projects/project1.html#questiontask-4",
-    "href": "Projects/project1.html#questiontask-4",
-    "title": "Client Report - What’s in a name?",
-    "section": "QUESTION|TASK 4",
-    "text": "QUESTION|TASK 4\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2001,\n        x1=2001,\n        y0=0,\n        y1=8000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2001,\n    y=8000,\n    text='Release of Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#bible-names",
-    "href": "Projects/project1.html#bible-names",
+    "objectID": "Projects/project2.html#bible-names",
+    "href": "Projects/project2.html#bible-names",
     "title": "Client Report - What’s in a name?",
     "section": "Bible Names",
     "text": "Bible Names\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
-      "Project 1"
+      "Project 2"
     ]
   },
   {
-    "objectID": "Projects/project1.html#popular-movie-name",
-    "href": "Projects/project1.html#popular-movie-name",
+    "objectID": "Projects/project2.html#popular-movie-name",
+    "href": "Projects/project2.html#popular-movie-name",
     "title": "Client Report - What’s in a name?",
     "section": "Popular Movie Name",
     "text": "Popular Movie Name\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2001,\n        x1=2001,\n        y0=0,\n        y1=8000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2001,\n    y=8000,\n    text='Release of Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()\n\n\n                                                \n\n\ninclude figures in chunks and discuss your findings in the figure.",
     "crumbs": [
       "DS250 Projects",
-      "Project 1"
+      "Project 2"
     ]
   }
 ]
