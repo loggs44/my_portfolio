@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - What's in a name?"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Logan Clark"
 format:
   html:
     self-contained: true
@@ -36,8 +36,7 @@ import plotly.express as px
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.
 
 ```{python}
 #| label: project data
@@ -48,145 +47,196 @@ df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-
 
 __Highlight the Questions and Tasks__
 
-## QUESTION|TASK 1
+## Birth Name
 
-__COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
+How does your name at your birth year compare to its use historically?
 
-_type your results and analysis here_
+For my name and it's use historically it is in the middle of it's popularity. From 2000 and on you can see a huge increase in use of the name of Logan.
 
 ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
+fig = px.line(df.query('name == "Logan"'),
+  x="year", 
+  y="Total", 
+  color='name', 
+  title='The Name Logan Used Per Year')
 
+fig.add_shape(
+    dict(
+        type='line',
+        x0=2000,
+        x1=2000,
+        y0=0,
+        y1=10000,
+        line=dict(color='red', dash='dash'),
+    )
+)
 
+fig.add_annotation(
+    x=2000,
+    y=10000,
+    text='Birth Year',
+    showarrow=True,
+    arrowhead=1,
+)
+
+fig.show()
 ```
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
-#| label: Q1 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
+## Age of Brittany
 
+If you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?
 
-```{python}
-#| label: Q1 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-```
-
-
-## QUESTION|TASK 2
-
-__COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
-
-_type your results and analysis here_
+I would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.
 
 ```{python}
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
+fig = px.line(df.query('name == "Brittany"'),
+  x="year", 
+  y="Total", 
+  color='name', 
+  title='The Name Brittany Used Per Year')
 
+fig.add_shape(
+    dict(
+        type='line',
+        x0=1990,
+        x1=1990,
+        y0=0,
+        y1=40000,
+        line=dict(color='red', dash='dash'),
+    )
+)
+
+fig.add_annotation(
+    x=1990,
+    y=40000,
+    text='34 Years Old',
+    showarrow=True,
+    arrowhead=4,
+
+)
+
+fig.show()
 
 ```
 
 _include figures in chunks and discuss your findings in the figure._
 
-```{python}
-#| label: Q2 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
+## Bible Names
 
+Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?
 
-```{python}
-#| label: Q2 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-```
-
-
-## QUESTION|TASK 3
-
-__COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
-
-_type your results and analysis here_
+I noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.
 
 ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
 
+fig = px.line(df.query('name == ["Paul","Mary","Martha","Peter"] and year > 1920 and year < 2000'),
+  x="year", 
+  y="Total", 
+  color='name', 
+  title='Names Used Per Year')
 
+fig.add_shape(
+    dict(
+        type='line',
+        x0=1950,
+        x1=1950,
+        y0=0,
+        y1=max(df['Total']),
+        line=dict(color='pink', dash='dash'),
+    )
+)
+
+fig.add_annotation(
+    x=1950,
+    y=54000,
+    text='Mary',
+    showarrow=True,
+    arrowhead=4,
+
+)
+
+fig.add_annotation(
+    x=1950,
+    y=22000,
+    text='Paul',
+    showarrow=True,
+    arrowhead=4,
+
+)
+
+fig.add_annotation(
+    x=1940,
+    y=9000,
+    text='Martha',
+    showarrow=True,
+    arrowhead=4,
+
+)
+
+fig.add_annotation(
+    x=1930,
+    y=3300,
+    text='Peter',
+    showarrow=True,
+    arrowhead=4,
+    ax=0,
+    ay=-40
+
+)
+
+fig.show()
 ```
 
 _include figures in chunks and discuss your findings in the figure._
 
+## Popular Movie Name
+
+Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
+
+The release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic.
+
 ```{python}
-#| label: Q3 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
+#| label: Q4
+#| code-summary: Read and format data
 # Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
+
+fig = px.line(df.query('name == "Dominic" and year > 1980'),
+  x="year", 
+  y="Total", 
+  color='name', 
+  title='The Name Dominic Used Per Year')
+
+fig.add_shape(
+    dict(
+        type='line',
+        x0=2001,
+        x1=2001,
+        y0=0,
+        y1=8000,
+        line=dict(color='red', dash='dash'),
+    )
 )
-chart.show()
+
+fig.add_annotation(
+    x=2001,
+    y=8000,
+    text='Release of Fast and Furious (2001)',
+    showarrow=True,
+    arrowhead=4,
+)
+
+fig.show()
 ```
 
-
-```{python}
-#| label: Q3 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-```
+_include figures in chunks and discuss your findings in the figure._
