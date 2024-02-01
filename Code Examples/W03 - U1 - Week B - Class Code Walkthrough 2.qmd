@@ -1,0 +1,71 @@
+## W03.2 - U1 (Week B) - Class Code
+
+```{=html}
+<iframe id="kaltura_player" title="W03.2 - Class Code" src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/41338032/partner_id/1157612?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=1_i9t68eq4&amp;flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_7kw453lm" width="608" height="402" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allow="autoplay *; fullscreen *; encrypted-media *"></iframe>
+```
+
+### Below is the code from the video so you can follow along.
+
+```{python}
+#import the usual
+import pandas as pd 
+
+```
+
+```{python}
+# %%
+#read in url to df
+url = 'https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv'
+df = pd.read_csv(url)
+#%%
+df.tail(5)
+```
+
+```{python}
+# %%
+#how to confirm you got all the info 
+#what is unique do, what does size do
+# pd.unique(df.name).size
+df.name.size
+```
+
+```{python}
+# %%
+#how to use query with aggregation min, max, size
+pd.unique(df.query('name == "John"').year).min()
+```
+
+```{python}
+# %%
+pd.unique(df.query('name == "John"').year).max()
+```
+
+```{python}
+# %%
+pd.unique(df.query('name == "John"').year).size
+```
+
+```{python}
+# %%
+#what is group by and agg(n = (column, aggfunc))
+df_total1 = (df
+    .query('year > 1920 and year < 2000')
+    .groupby('name')
+    .agg(n = ('Total', 'sum'))
+    .reset_index()
+)
+df_total1.head()
+```
+
+```{python}
+# %%
+#what is group by and agg
+#also .max() and .min() can replace .sum()
+df_total2 = (df
+    .query('year > 1920 and year < 2000')
+    .groupby('name')
+    .Total.sum()
+    .reset_index()
+)
+df_total2
+```
