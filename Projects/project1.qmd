@@ -31,6 +31,7 @@ execute:
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import plotly.graph_objects as go
 ```
 
 
@@ -204,7 +205,7 @@ _include figures in chunks and discuss your findings in the figure._
 
 Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
 
-The release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic.
+The release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic. After the sixth movie there was a decline in the name Dominic.
 
 ```{python}
 #| label: Q4
@@ -217,21 +218,47 @@ fig = px.line(df.query('name == "Dominic" and year > 1980'),
   color='name', 
   title='The Name Dominic Used Per Year')
 
-fig.add_shape(
-    dict(
-        type='line',
-        x0=2001,
-        x1=2001,
-        y0=0,
-        y1=8000,
-        line=dict(color='red', dash='dash'),
-    )
-)
+# fig.add_shape(
+#     dict(
+#         type='line',
+#         x0=2001,
+#         x1=2001,
+#         y0=0,
+#         y1=8000,
+#         line=dict(color='red', dash='dash'),
+#     )
+# )
 
 fig.add_annotation(
     x=2001,
-    y=8000,
-    text='Release of Fast and Furious (2001)',
+    y=3387,
+    text='Fast and Furious (2001)',
+    showarrow=True,
+    arrowhead=4,
+    ax=0,
+    ay=55
+)
+
+fig.add_trace(go.Scatter(
+    x=[2001, 2003, 2013],
+    y=[3387, 5216, 6306],
+    mode="markers",
+    name="Release Dates",
+    textposition="top center"
+))
+
+fig.add_annotation(
+    x=2013,
+    y=6306,
+    text='Fast 6 (2013)',
+    showarrow=True,
+    arrowhead=4,
+)
+
+fig.add_annotation(
+    x=2003,
+    y=5216,
+    text='2 Fast 2 Furious (2003)',
     showarrow=True,
     arrowhead=4,
 )
