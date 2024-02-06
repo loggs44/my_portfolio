@@ -30,7 +30,7 @@ execute:
 #| include: false
 import pandas as pd
 import numpy as np
-import plotly.express as px
+# import plotly.express as px
 ```
 
 
@@ -42,10 +42,8 @@ The use of bible names like Peter, Mary, and Matha have all seen a decrease in u
 #| label: project data
 #| code-summary: Read and format project data
 # Include and execute your code here
-df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv")
+df = pd.read_json("https://raw.githubusercontent.com/byuidatascience/data4missing/master/data-raw/flights_missing/flights_missing.json")
 ```
-
-__Highlight the Questions and Tasks__
 
 ## Birth Name
 
@@ -57,35 +55,14 @@ For my name and it's use historically it is in the middle of it's popularity. Fr
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
-fig = px.line(df.query('name == "Logan"'),
-  x="year", 
-  y="Total", 
-  color='name', 
-  title='The Name Logan Used Per Year')
+# Assuming the 'month' column contains the values you want to check
+month_column = 'month'
 
-fig.add_shape(
-    dict(
-        type='line',
-        x0=2000,
-        x1=2000,
-        y0=0,
-        y1=10000,
-        line=dict(color='red', dash='dash'),
-    )
-)
+# Count the number of records with 'n/a' in the 'month' column
+na_count = df[df[month_column] == 'n/a'].shape[0]
 
-fig.add_annotation(
-    x=2000,
-    y=10000,
-    text='Birth Year',
-    showarrow=True,
-    arrowhead=1,
-)
-
-fig.show()
+print(f"Number of records with 'n/a' in the '{month_column}' column: {na_count}")
 ```
-
-_include figures in chunks and discuss your findings in the figure._
 
 ## Age of Brittany
 
@@ -97,37 +74,19 @@ I would guess the age of 34 years old. The ages that I would not guess are betwe
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
-fig = px.line(df.query('name == "Brittany"'),
-  x="year", 
-  y="Total", 
-  color='name', 
-  title='The Name Brittany Used Per Year')
+target_column = None
+for column in df.columns:
+    nan_count = df[column].apply(lambda x: pd.isna(x)).sum()
+    if nan_count == 23:
+        target_column = column
+        break
 
-fig.add_shape(
-    dict(
-        type='line',
-        x0=1990,
-        x1=1990,
-        y0=0,
-        y1=40000,
-        line=dict(color='red', dash='dash'),
-    )
-)
-
-fig.add_annotation(
-    x=1990,
-    y=40000,
-    text='34 Years Old',
-    showarrow=True,
-    arrowhead=4,
-
-)
-
-fig.show()
+if target_column is not None:
+    print(f"Column '{target_column}' has 23 values that are np.nan.")
+else:
+    print("No column has 23 values that are np.nan.")
 
 ```
-
-_include figures in chunks and discuss your findings in the figure._
 
 ## Bible Names
 
@@ -198,8 +157,6 @@ fig.add_annotation(
 fig.show()
 ```
 
-_include figures in chunks and discuss your findings in the figure._
-
 ## Popular Movie Name
 
 Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?
@@ -238,5 +195,3 @@ fig.add_annotation(
 
 fig.show()
 ```
-
-_include figures in chunks and discuss your findings in the figure._

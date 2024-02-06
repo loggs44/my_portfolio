@@ -31,7 +31,7 @@ execute:
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 ```
 
 
@@ -46,7 +46,7 @@ The use of bible names like Peter, Mary, and Matha have all seen a decrease in u
 df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv")
 ```
 
-__Highlight the Questions and Tasks__
+<!-- __Highlight the Questions and Tasks__ -->
 
 ## Birth Name
 
@@ -86,7 +86,6 @@ fig.add_annotation(
 fig.show()
 ```
 
-_include figures in chunks and discuss your findings in the figure._
 
 ## Age of Brittany
 
@@ -128,7 +127,6 @@ fig.show()
 
 ```
 
-_include figures in chunks and discuss your findings in the figure._
 
 ## Bible Names
 
@@ -199,7 +197,6 @@ fig.add_annotation(
 fig.show()
 ```
 
-_include figures in chunks and discuss your findings in the figure._
 
 ## Popular Movie Name
 
@@ -254,5 +251,3 @@ fig.add_annotation(
 
 fig.show()
 ```
-
-_include figures in chunks and discuss your findings in the figure._

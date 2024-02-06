@@ -25,7 +25,7 @@ execute:
     
 ---
 
-```{python}
+<!-- ```{python}
 #| label: libraries
 #| include: false
 import pandas as pd
@@ -189,4 +189,4 @@ mydat = df.head(1000)\
 
 display(mydat)
 
-```
+``` -->
