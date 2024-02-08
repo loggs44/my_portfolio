@@ -25,7 +25,10 @@ execute:
     
 ---
 
-<!-- ```{python}
+### Uncomment the entire section to use this template
+
+<!-- 
+```{python}
 #| label: libraries
 #| include: false
 import pandas as pd
