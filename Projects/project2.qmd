@@ -72,18 +72,14 @@ The aiport with the worst delay is Chicago,IL: Chicago O'Hare International. On 
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
-# Calculate proportion of delayed flights
 flights['Proportion of Delayed Flights'] = flights['num_of_delays_total'] / flights['num_of_flights_total']
 
 flights['hours_delayed'] = (flights.minutes_delayed_total / 60).round()
 
-# Count the repeat airports
 airport_counts = flights['airport_name'].value_counts()
 
-# Summary table
 summary_table = flights[['airport_name', 'num_of_flights_total', 'num_of_delays_total', 'Proportion of Delayed Flights', 'hours_delayed']]
 
-# Merge counts with summary table
 summary_table = summary_table.merge(airport_counts.rename('Repeat Airports'), left_on='airport_name', right_index=True)
 
 grouped_summary = summary_table.groupby('airport_name').agg({
@@ -94,11 +90,8 @@ grouped_summary = summary_table.groupby('airport_name').agg({
     'Repeat Airports': 'sum'
 })
 
-# Sort the summary table by 'hours_delayed' column in descending order
 summary_table_sorted = grouped_summary.sort_values(by='hours_delayed', ascending=False)
 
-
-# Display summary table
 summary_table_sorted.head()
 ```
 
@@ -112,13 +105,10 @@ The best time to fly would be in the month of November. The delays of flight per
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
-# Filter out rows with missing Month variable
 flights_filtered = flights.dropna(subset=['month'])
 
-# Group by month and calculate average delay time
 average_delay_per_month = flights_filtered.groupby('month')['hours_delayed'].mean().reset_index()
 
-# Plot the average delay time for each month using Plotly Express
 fig = px.line(average_delay_per_month, x='month', y='hours_delayed',
              title='Average Delay Time by Month',
              labels={'hours_delayed': 'Average Delay Time (hours)'},
