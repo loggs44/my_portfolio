@@ -114,8 +114,6 @@ The best time to fly would be in the month of September. The delays of flight pe
 #| code-summary: Read and format data
 # Include and execute your code here
 # Define the order of months
-flights['month'] = pd.Categorical(flights['month'], categories=month_order, ordered=True)
-
 average_delay_per_month = flights.groupby('month', sort=False)['hours_delayed'].mean().reset_index()
 
 
