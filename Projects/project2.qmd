@@ -74,7 +74,7 @@ flights.to_json()
 
 Which airport has the worst delays? Discuss the metric you chose, and why you chose it to determine the “worst” airport. Your answer should include a summary table that lists (for each airport) the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours.
 
-The aiport with the worst delay is San Francisco International Airport. The Proportion of their flight delayed is 0.26. Meaning that per flight they are usually delayed or arrive late. 
+The aiport with the worst delay is San Francisco International Airport. The Proportion of their flights delayed is 0.26. Meaning that per flight they are usually delayed or arrive late. 
 
 ```{python}
 #| label: Q2
@@ -135,7 +135,7 @@ According to the BTS website, the “Weather” category only accounts for sever
 
 From April to August, 40% of delayed flights in the NAS category are due to weather. The rest of the months, the proportion rises to 65%.
 
-The table below will show us how many flights are delayed by severe and mild weather. It will also show us the proportion of delayed flights that are due to weather per airport.
+From the first five rows in the table we can see that the proportion of weather delays is high compared to the rest of the months. It ranges from 30% to as high as 50%.
 
 ```{python}
 #| label: Q4
@@ -164,7 +164,7 @@ weather.head()
 
 Using the new weather variable calculated above, create a barplot showing the proportion of all flights that are delayed by weather at each airport. Discuss what you learn from this graph.
 
-San Francisco International Airport has the worst weather delays out of the rest of the airports. It has significantly more flights delyed by all types of weather than the other airport.
+San Francisco International Airport has the worst weather delays out of the rest of the airports. It has significantly more flights delyed by all types of weather than the other airports.
 
 ```{python}
 #| label: Q5
