@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - Delayed Flights, Project 2"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Logan Clark"
 format:
   html:
     self-contained: true
@@ -36,8 +36,7 @@ import plotly.express as px
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+Flights on average are delayed the most in San Francisco International Airport. The Proportion of delayed flights there are 26%. The worst time to fly would be in June because the total delay time is 4,473 hours. The best time to fly is in Semtember with a total of 2,546 hours in delay time. San Francisco International airport has the most delays due to weather when compared to the other aiprorts.
 
 ```{python}
 #| label: project data
@@ -53,12 +52,21 @@ __Highlight the Questions and Tasks__
 
 Fix all of the varied missing data types in the data to be consistent (all missing values should be displayed as “NaN”). In your report include one record example (one row) from your new data, in the raw JSON format. Your example should display the “NaN” for at least one missing value.__
 
-_type your results and analysis here_
+<!-- _type your results and analysis here_ -->
 
 ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
+flights.month.replace(['NaN','n/a'],np.nan,inplace=True)
+flights.month.replace('Febuary','February',inplace=True)
+flights.num_of_delays_late_aircraft.replace(-999,np.nan,inplace=True)
+flights.num_of_delays_carrier.replace('1500+',1500,inplace=True)
+flights.airport_name.replace('','Washington, DC: Washington Dulles International',inplace=True)
+
+flights['month'] = flights['month'].ffill()
+
+flights.to_json()
 
 ```
 
@@ -66,7 +74,7 @@ _type your results and analysis here_
 
 Which airport has the worst delays? Discuss the metric you chose, and why you chose it to determine the “worst” airport. Your answer should include a summary table that lists (for each airport) the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours.
 
-The aiport with the worst delay is Chicago,IL: Chicago O'Hare International. On average throughout each month it is delayed 6,955 hours in delayed time. 
+The aiport with the worst delay is San Francisco International Airport. The Proportion of their flight delayed is 0.26. Meaning that per flight they are usually delayed or arrive late. 
 
 ```{python}
 #| label: Q2
@@ -90,7 +98,7 @@ grouped_summary = summary_table.groupby('airport_name').agg({
     'Repeat Airports': 'sum'
 })
 
-summary_table_sorted = grouped_summary.sort_values(by='hours_delayed', ascending=False)
+summary_table_sorted = grouped_summary.sort_values(by='Proportion of Delayed Flights', ascending=False)
 
 summary_table_sorted.head()
 ```
@@ -99,23 +107,22 @@ summary_table_sorted.head()
 
 What is the best month to fly if you want to avoid delays of any length? Discuss the metric you chose and why you chose it to calculate your answer. Include one chart to help support your answer, with the x-axis ordered by month. (To answer this question, you will need to remove any rows that are missing the Month variable.)
 
-The best time to fly would be in the month of November. The delays of flight per hour are the smallest out of the rest of the year. The reason I chose to go with delay of time in hours is because amercans use hours to gage time rather than minutes. We think in how many hours it is going to take us to do something or how long of a delay it will be.
+The best time to fly would be in the month of September. The delays of flight per hour are the smallest out of the rest of the year. The reason I chose to go with average delay time is becuase I wanted to see who had the lowest average delay time. This will help me to gage when to fly and when not to fly.
 
 ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
-flights_filtered = flights.dropna(subset=['month'])
+# Define the order of months
+flights['month'] = pd.Categorical(flights['month'], categories=month_order, ordered=True)
 
-average_delay_per_month = flights_filtered.groupby('month')['hours_delayed'].mean().reset_index()
+average_delay_per_month = flights.groupby('month', sort=False)['hours_delayed'].mean().reset_index()
 
-fig = px.line(average_delay_per_month, x='month', y='hours_delayed',
+
+fig = px.bar(average_delay_per_month, x='month', y='hours_delayed',
              title='Average Delay Time by Month',
-             labels={'hours_delayed': 'Average Delay Time (hours)'},
-             color_discrete_sequence=['skyblue'])
-fig.update_layout(xaxis=dict(tickangle=45),
-                  yaxis=dict(title='Average Delay Time (hours)'),
-                  plot_bgcolor='rgba(0,0,0,0)')
+             labels={'hours_delayed': 'Average Delay Time (hours)'})
+
 fig.show()
 
 ```
@@ -130,7 +137,7 @@ According to the BTS website, the “Weather” category only accounts for sever
 
 From April to August, 40% of delayed flights in the NAS category are due to weather. The rest of the months, the proportion rises to 65%.
 
-<!-- _type your results and analysis here_ -->
+The table below will show us how many flights are delayed by severe and mild weather. It will also show us the proportion of delayed flights that are due to weather per airport.
 
 ```{python}
 #| label: Q4
@@ -159,17 +166,16 @@ weather.head()
 
 Using the new weather variable calculated above, create a barplot showing the proportion of all flights that are delayed by weather at each airport. Discuss what you learn from this graph.
 
-More flights are delayed due to weather in Orlando and San Francisco.
+San Francisco International Airport has the worst weather delays out of the rest of the airports. It has significantly more flights delyed by all types of weather than the other airport.
 
 ```{python}
 #| label: Q5
 #| code-summary: Read and format data
 # Include and execute your code here
-fig = px.bar(weather, x='airport_code', y='proportion_weather_delay',
+fig = px.bar(weather, x='airport_code', y='proportion_weather_total',
              title='Proportion of Flights Delayed by Weather Per Airport',
              labels={'proportion_weather_delay': 'Proportion of Delayed Flights by Weather'},
-             color='airport_code',
-             color_discrete_sequence=px.colors.qualitative.Safe)
+             color='airport_code')
 
 fig.update_layout(xaxis_title='Airport Code', yaxis_title='Proportion of Delayed Flights by Weather')
 
