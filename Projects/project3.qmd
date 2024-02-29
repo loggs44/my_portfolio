@@ -24,84 +24,73 @@ execute:
   warning: false
     
 ---
-
-### Uncomment the entire section to use this template
-
-<!-- 
 ```{python}
 #| label: libraries
 #| include: false
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import sqlite3
+```
+
+```{python}
+# %%
+# Upgrade pip if needed
+import sys
+!{sys.executable} -m pip install --upgrade pip
 ```
 
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. 
 
 ```{python}
 #| label: project data
 #| code-summary: Read and format project data
 # Include and execute your code here
-df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv")
+sqlite_file = 'lahmansbaseballdb.sqlite'
+con = sqlite3.connect(sqlite_file)
 ```
 
 __Highlight the Questions and Tasks__
 
 ## QUESTION|TASK 1
 
-__COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
+Write an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.
 
-_type your results and analysis here_
+There are only two players that went to BYU-Idaho and then went on to play at a higher level. They were lindsma01 and stephga01.
 
 ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
+q = '''
+SELECT salaries.playerID
+,      collegeplaying.schoolID
+,      salaries.salary
+,      salaries.yearID
+,      salaries.teamID
+FROM   salaries
+JOIN   collegeplaying 
+ON     salaries.playerID = collegeplaying.playerID
+WHERE  collegeplaying.schoolID = 'idbyuid'
+ORDER BY salaries.salary DESC;
+'''
 
-
+df = pd.read_sql_query(q,con)
+df
 ```
-
-_include figures in chunks and discuss your findings in the figure._
-
-```{python}
-#| label: Q1 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
-
-
-```{python}
-#| label: Q1 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-```
-
 
 ## QUESTION|TASK 2
 
-__COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
+This three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)
+
+A. Write an SQL query that provides playerID, yearID, and     batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.
+
+B. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.
+
+C. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.
 
 _type your results and analysis here_
 
@@ -109,87 +98,104 @@ _type your results and analysis here_
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
+q = '''
+SELECT
+    playerID,
+    yearID,
+    H,
+    AB,
+    CAST(H AS FLOAT)/AB as 'BA'
+FROM
+    batting
+WHERE
+    AB >= 1
+ORDER BY
+    BA DESC,
+    playerID ASC
+LIMIT 5;
+'''
 
-
+df = pd.read_sql_query(q,con)
+df
 ```
 
-_include figures in chunks and discuss your findings in the figure._
+``` {python}
+q = '''
+SELECT
+    playerID,
+    yearID,
+    H,
+    AB,
+    CAST(H AS FLOAT)/AB as 'BA'
+FROM
+    batting
+WHERE
+    AB >= 10
+ORDER BY
+    BA DESC,
+    playerID ASC
+LIMIT 5;
+'''
+
+df = pd.read_sql_query(q,con)
+df
+```
 
 ```{python}
-#| label: Q2 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
+q = '''
+SELECT
+    playerID,
+    yearID,
+    H,
+    AB,
+    CAST(H AS FLOAT)/AB as 'BA'
+FROM
+    batting
+WHERE
+    AB >= 100
+ORDER BY
+    BA DESC,
+    playerID ASC
+LIMIT 5;
+'''
 
-
-```{python}
-#| label: Q2 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
+df = pd.read_sql_query(q,con)
+df
 
 ```
-
 
 ## QUESTION|TASK 3
 
-__COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
+Pick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?
 
-_type your results and analysis here_
+Cleveland has had an average salary in the 2000s for $2.4 million. Oakland has had a little bit less with $2.1 million. Salary for the two organizations seem low for the league. Cleveland pays more than Oakland does on average.
 
 ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
+q = '''
+SELECT
+    teamID,
+    yearID,
+    AVG(salary) AS avg_salary
+FROM
+    salaries
+WHERE
+    yearID BETWEEN 2000 AND 2016
+    AND teamID IN ('CLE', 'OAK')
+GROUP BY
+    teamID;
 
+'''
+
+df = pd.read_sql_query(q,con)
+df
 
 ```
-
-_include figures in chunks and discuss your findings in the figure._
-
 ```{python}
-#| label: Q3 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
+fig = px.bar(df, x='teamID', y='avg_salary', title='Average Salary Comparison between CLE and OAK from 2000 to 2016')
+fig.update_layout(xaxis_title='Team', yaxis_title='Average Salary')
+
+fig.show()
 ```
-
-
-```{python}
-#| label: Q3 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
-
-``` -->
