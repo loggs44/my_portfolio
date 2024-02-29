@@ -38,7 +38,51 @@
     "href": "Projects/project3.html",
     "title": "Client Report - [Insert Project Title]",
     "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
+    "text": "Show the code\n# %%\n# Upgrade pip if needed\nimport sys\n!{sys.executable} -m pip install --upgrade pip\n\n\nRequirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.8/x64/lib/python3.11/site-packages (24.0)",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#elevator-pitch",
+    "href": "Projects/project3.html#elevator-pitch",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "Elevator pitch",
+    "text": "Elevator pitch\nThere were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)\n\n\nHighlight the Questions and Tasks",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#questiontask-1",
+    "href": "Projects/project3.html#questiontask-1",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "QUESTION|TASK 1",
+    "text": "QUESTION|TASK 1\nWrite an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.\nThere are only two players that went to BYU-Idaho and then went on to play at a higher level. They were lindsma01 and stephga01.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT salaries.playerID\n,      collegeplaying.schoolID\n,      salaries.salary\n,      salaries.yearID\n,      salaries.teamID\nFROM   salaries\nJOIN   collegeplaying \nON     salaries.playerID = collegeplaying.playerID\nWHERE  collegeplaying.schoolID = 'idbyuid'\nORDER BY salaries.salary DESC;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nschoolID\nsalary\nyearID\nteamID\n\n\n\n\n0\nlindsma01\nidbyuid\n4000000.0\n2014\nCHA\n\n\n1\nlindsma01\nidbyuid\n4000000.0\n2014\nCHA\n\n\n2\nlindsma01\nidbyuid\n3600000.0\n2012\nBAL\n\n\n3\nlindsma01\nidbyuid\n3600000.0\n2012\nBAL\n\n\n4\nlindsma01\nidbyuid\n2800000.0\n2011\nCOL\n\n\n5\nlindsma01\nidbyuid\n2800000.0\n2011\nCOL\n\n\n6\nlindsma01\nidbyuid\n2300000.0\n2013\nCHA\n\n\n7\nlindsma01\nidbyuid\n2300000.0\n2013\nCHA\n\n\n8\nlindsma01\nidbyuid\n1625000.0\n2010\nHOU\n\n\n9\nlindsma01\nidbyuid\n1625000.0\n2010\nHOU\n\n\n10\nstephga01\nidbyuid\n1025000.0\n2001\nSLN\n\n\n11\nstephga01\nidbyuid\n1025000.0\n2001\nSLN\n\n\n12\nstephga01\nidbyuid\n900000.0\n2002\nSLN\n\n\n13\nstephga01\nidbyuid\n900000.0\n2002\nSLN\n\n\n14\nstephga01\nidbyuid\n800000.0\n2003\nSLN\n\n\n15\nstephga01\nidbyuid\n800000.0\n2003\nSLN\n\n\n16\nstephga01\nidbyuid\n550000.0\n2000\nSLN\n\n\n17\nstephga01\nidbyuid\n550000.0\n2000\nSLN\n\n\n18\nlindsma01\nidbyuid\n410000.0\n2009\nFLO\n\n\n19\nlindsma01\nidbyuid\n410000.0\n2009\nFLO\n\n\n20\nlindsma01\nidbyuid\n395000.0\n2008\nFLO\n\n\n21\nlindsma01\nidbyuid\n395000.0\n2008\nFLO\n\n\n22\nlindsma01\nidbyuid\n380000.0\n2007\nFLO\n\n\n23\nlindsma01\nidbyuid\n380000.0\n2007\nFLO\n\n\n24\nstephga01\nidbyuid\n215000.0\n1999\nSLN\n\n\n25\nstephga01\nidbyuid\n215000.0\n1999\nSLN\n\n\n26\nstephga01\nidbyuid\n185000.0\n1998\nPHI\n\n\n27\nstephga01\nidbyuid\n185000.0\n1998\nPHI\n\n\n28\nstephga01\nidbyuid\n150000.0\n1997\nPHI\n\n\n29\nstephga01\nidbyuid\n150000.0\n1997\nPHI",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#questiontask-2",
+    "href": "Projects/project3.html#questiontask-2",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "QUESTION|TASK 2",
+    "text": "QUESTION|TASK 2\nThis three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)\nA. Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.\nB. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.\nC. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT\n    playerID,\n    yearID,\n    H,\n    AB,\n    CAST(H AS FLOAT)/AB as 'BA'\nFROM\n    batting\nWHERE\n    AB &gt;= 1\nORDER BY\n    BA DESC,\n    playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\naberal01\n1957\n1\n1\n1.0\n\n\n1\nabernte02\n1960\n1\n1\n1.0\n\n\n2\nabramge01\n1923\n1\n1\n1.0\n\n\n3\nacklefr01\n1964\n1\n1\n1.0\n\n\n4\nalanirj01\n2019\n1\n1\n1.0\n\n\n\n\n\n\n\n\n\n\nShow the code\nq = '''\nSELECT\n    playerID,\n    yearID,\n    H,\n    AB,\n    CAST(H AS FLOAT)/AB as 'BA'\nFROM\n    batting\nWHERE\n    AB &gt;= 10\nORDER BY\n    BA DESC,\n    playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\nnymanny01\n1974\n9\n14\n0.642857\n\n\n1\ncarsoma01\n2013\n7\n11\n0.636364\n\n\n2\naltizda01\n1910\n6\n10\n0.600000\n\n\n3\njohnsde01\n1975\n6\n10\n0.600000\n\n\n4\nsilvech01\n1948\n8\n14\n0.571429\n\n\n\n\n\n\n\n\n\n\nShow the code\nq = '''\nSELECT\n    playerID,\n    yearID,\n    H,\n    AB,\n    CAST(H AS FLOAT)/AB as 'BA'\nFROM\n    batting\nWHERE\n    AB &gt;= 100\nORDER BY\n    BA DESC,\n    playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\nmeyerle01\n1871\n64\n130\n0.492308\n\n\n1\nduffyhu01\n1894\n237\n539\n0.439703\n\n\n2\noneilti01\n1887\n225\n517\n0.435203\n\n\n3\nmcveyca01\n1871\n66\n153\n0.431373\n\n\n4\nbarnero01\n1873\n138\n320\n0.431250",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#questiontask-3",
+    "href": "Projects/project3.html#questiontask-3",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "QUESTION|TASK 3",
+    "text": "QUESTION|TASK 3\nPick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?\nCleveland has had an average salary in the 2000s for $2.4 million. Oakland has had a little bit less with $2.1 million. Salary for the two organizations seem low for the league. Cleveland pays more than Oakland does on average.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT\n    teamID,\n    yearID,\n    AVG(salary) AS avg_salary\nFROM\n    salaries\nWHERE\n    yearID BETWEEN 2000 AND 2016\n    AND teamID IN ('CLE', 'OAK')\nGROUP BY\n    teamID;\n\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nteamID\nyearID\navg_salary\n\n\n\n\n0\nCLE\n2000\n2.414402e+06\n\n\n1\nOAK\n2000\n2.105380e+06\n\n\n\n\n\n\n\n\n\n\nShow the code\nfig = px.bar(df, x='teamID', y='avg_salary', title='Average Salary Comparison between CLE and OAK from 2000 to 2016')\nfig.update_layout(xaxis_title='Team', yaxis_title='Average Salary')\n\nfig.show()",
     "crumbs": [
       "DS250 Projects",
       "Project 3"
