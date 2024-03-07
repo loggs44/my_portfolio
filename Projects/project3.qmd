@@ -45,7 +45,6 @@ sqlite_file = 'lahmansbaseballdb.sqlite'
 con = sqlite3.connect(sqlite_file)
 ```
 
-__Highlight the Questions and Tasks__
 
 ## Professional BYU-Idaho Players
 
