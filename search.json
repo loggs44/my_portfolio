@@ -1,128 +1,10 @@
 [
   {
-    "objectID": "exploration.html",
-    "href": "exploration.html",
-    "title": "about me",
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Logan Clark",
     "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "exploration.html#title-2-header",
-    "href": "exploration.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "DS250 Projects",
-    "section": "",
-    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5",
-    "crumbs": [
-      "DS250 Projects"
-    ]
-  },
-  {
-    "objectID": "projects.html#repo-for-all-my-projects",
-    "href": "projects.html#repo-for-all-my-projects",
-    "title": "DS250 Projects",
-    "section": "",
-    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5",
-    "crumbs": [
-      "DS250 Projects"
-    ]
-  },
-  {
-    "objectID": "Projects/project3.html",
-    "href": "Projects/project3.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Show the code\n# %%\n# Upgrade pip if needed\nimport sys\n!{sys.executable} -m pip install --upgrade pip\n\n\nRequirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.8/x64/lib/python3.11/site-packages (24.0)",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Projects/project3.html#elevator-pitch",
-    "href": "Projects/project3.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "Elevator pitch",
-    "text": "Elevator pitch\nThere were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)\n\n\nHighlight the Questions and Tasks",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Projects/project3.html#questiontask-1",
-    "href": "Projects/project3.html#questiontask-1",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nWrite an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.\nThere are only two players that went to BYU-Idaho and then went on to play at a higher level. They were lindsma01 and stephga01.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT salaries.playerID\n,      collegeplaying.schoolID\n,      salaries.salary\n,      salaries.yearID\n,      salaries.teamID\nFROM   salaries\nJOIN   collegeplaying \nON     salaries.playerID = collegeplaying.playerID\nWHERE  collegeplaying.schoolID = 'idbyuid'\nORDER BY salaries.salary DESC;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nschoolID\nsalary\nyearID\nteamID\n\n\n\n\n0\nlindsma01\nidbyuid\n4000000.0\n2014\nCHA\n\n\n1\nlindsma01\nidbyuid\n4000000.0\n2014\nCHA\n\n\n2\nlindsma01\nidbyuid\n3600000.0\n2012\nBAL\n\n\n3\nlindsma01\nidbyuid\n3600000.0\n2012\nBAL\n\n\n4\nlindsma01\nidbyuid\n2800000.0\n2011\nCOL\n\n\n5\nlindsma01\nidbyuid\n2800000.0\n2011\nCOL\n\n\n6\nlindsma01\nidbyuid\n2300000.0\n2013\nCHA\n\n\n7\nlindsma01\nidbyuid\n2300000.0\n2013\nCHA\n\n\n8\nlindsma01\nidbyuid\n1625000.0\n2010\nHOU\n\n\n9\nlindsma01\nidbyuid\n1625000.0\n2010\nHOU\n\n\n10\nstephga01\nidbyuid\n1025000.0\n2001\nSLN\n\n\n11\nstephga01\nidbyuid\n1025000.0\n2001\nSLN\n\n\n12\nstephga01\nidbyuid\n900000.0\n2002\nSLN\n\n\n13\nstephga01\nidbyuid\n900000.0\n2002\nSLN\n\n\n14\nstephga01\nidbyuid\n800000.0\n2003\nSLN\n\n\n15\nstephga01\nidbyuid\n800000.0\n2003\nSLN\n\n\n16\nstephga01\nidbyuid\n550000.0\n2000\nSLN\n\n\n17\nstephga01\nidbyuid\n550000.0\n2000\nSLN\n\n\n18\nlindsma01\nidbyuid\n410000.0\n2009\nFLO\n\n\n19\nlindsma01\nidbyuid\n410000.0\n2009\nFLO\n\n\n20\nlindsma01\nidbyuid\n395000.0\n2008\nFLO\n\n\n21\nlindsma01\nidbyuid\n395000.0\n2008\nFLO\n\n\n22\nlindsma01\nidbyuid\n380000.0\n2007\nFLO\n\n\n23\nlindsma01\nidbyuid\n380000.0\n2007\nFLO\n\n\n24\nstephga01\nidbyuid\n215000.0\n1999\nSLN\n\n\n25\nstephga01\nidbyuid\n215000.0\n1999\nSLN\n\n\n26\nstephga01\nidbyuid\n185000.0\n1998\nPHI\n\n\n27\nstephga01\nidbyuid\n185000.0\n1998\nPHI\n\n\n28\nstephga01\nidbyuid\n150000.0\n1997\nPHI\n\n\n29\nstephga01\nidbyuid\n150000.0\n1997\nPHI",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Projects/project3.html#questiontask-2",
-    "href": "Projects/project3.html#questiontask-2",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nThis three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)\nA. Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.\nB. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.\nC. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT\n    playerID,\n    yearID,\n    H,\n    AB,\n    CAST(H AS FLOAT)/AB as 'BA'\nFROM\n    batting\nWHERE\n    AB &gt;= 1\nORDER BY\n    BA DESC,\n    playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\naberal01\n1957\n1\n1\n1.0\n\n\n1\nabernte02\n1960\n1\n1\n1.0\n\n\n2\nabramge01\n1923\n1\n1\n1.0\n\n\n3\nacklefr01\n1964\n1\n1\n1.0\n\n\n4\nalanirj01\n2019\n1\n1\n1.0\n\n\n\n\n\n\n\n\n\n\nShow the code\nq = '''\nSELECT\n    playerID,\n    yearID,\n    H,\n    AB,\n    CAST(H AS FLOAT)/AB as 'BA'\nFROM\n    batting\nWHERE\n    AB &gt;= 10\nORDER BY\n    BA DESC,\n    playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\nnymanny01\n1974\n9\n14\n0.642857\n\n\n1\ncarsoma01\n2013\n7\n11\n0.636364\n\n\n2\naltizda01\n1910\n6\n10\n0.600000\n\n\n3\njohnsde01\n1975\n6\n10\n0.600000\n\n\n4\nsilvech01\n1948\n8\n14\n0.571429\n\n\n\n\n\n\n\n\n\n\nShow the code\nq = '''\nSELECT\n    playerID,\n    yearID,\n    H,\n    AB,\n    CAST(H AS FLOAT)/AB as 'BA'\nFROM\n    batting\nWHERE\n    AB &gt;= 100\nORDER BY\n    BA DESC,\n    playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\nmeyerle01\n1871\n64\n130\n0.492308\n\n\n1\nduffyhu01\n1894\n237\n539\n0.439703\n\n\n2\noneilti01\n1887\n225\n517\n0.435203\n\n\n3\nmcveyca01\n1871\n66\n153\n0.431373\n\n\n4\nbarnero01\n1873\n138\n320\n0.431250",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Projects/project3.html#questiontask-3",
-    "href": "Projects/project3.html#questiontask-3",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nPick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?\nCleveland has had an average salary in the 2000s for $2.4 million. Oakland has had a little bit less with $2.1 million. Salary for the two organizations seem low for the league. Cleveland pays more than Oakland does on average.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT\n    teamID,\n    yearID,\n    AVG(salary) AS avg_salary\nFROM\n    salaries\nWHERE\n    yearID BETWEEN 2000 AND 2016\n    AND teamID IN ('CLE', 'OAK')\nGROUP BY\n    teamID;\n\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nteamID\nyearID\navg_salary\n\n\n\n\n0\nCLE\n2000\n2.414402e+06\n\n\n1\nOAK\n2000\n2.105380e+06\n\n\n\n\n\n\n\n\n\n\nShow the code\nfig = px.bar(df, x='teamID', y='avg_salary', title='Average Salary Comparison between CLE and OAK from 2000 to 2016')\nfig.update_layout(xaxis_title='Team', yaxis_title='Average Salary')\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Projects/project5.html",
-    "href": "Projects/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "Projects/project4.html",
-    "href": "Projects/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 4"
-    ]
-  },
-  {
-    "objectID": "cleansing.html",
-    "href": "cleansing.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "cleansing.html#title-2-header",
-    "href": "cleansing.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
+    "text": "(208)530-1980 | loganjclark@gmail.com | www.linkedin.com/in/logan-clark\n\nEducation\nBachelors of Science | Brigham Young University - Idaho | Rexburg, Idaho January 2021 - Present\n\n\n\nMajor in Computer Information Technology\n\n\nGPA: 3.8\n\n\nDiploma, Skyline High School\n\n\n\nParticipated in baseball all four years.\nReceived a certification in Word and PowerPoint.\n\n\n\n\nTechnical Skills\n\nProgramming Languages: C# | Python | MySQL\n\n\nExperience with CLI to solve problems with databases as well as creating and managing filesytems. | Able to work proficiently in a team scenario as well as manage a team.\n\n\n\n\nProjects\n\nWrote a contact book application using python to store personal contacts. This project included locally storing the data, adding new contact records, deleting, and modifying existing contact records and the ablility to look up information by contact phone number.\n\n\nDeveloped a point tracking system for stores using C#. Functionality delivered included the ability to parse a receipt and store specific information in a text file as well as keeping a record of point totals and your reward level.\nDesigned a database to be used by a Major League Baseball team (MLB). This includes an Entity Relationship Diagram (ERD) that shows the relationships between all the different tables.\nCurrently I am working on a website for my web frontend development class. I am coding it in HTML, CSS, and JavaScript.\n\n\n\nExperience\nSales Representative | ZAGG | Idaho Falls, Idaho 2021- Present\n\n\n\nAccomplished daily tasks that were assigned to me.\nEffectively communicate sales and promotions.\nResponsible for closing and counting the till.\nFixed customers phones.\nProblem solved why phones were not working.\n\nSales Representative | Aptive Enviromental | Fort Worth, Texas Summer 2022\n\n\n\nSold pest control door to door.\nEffectively communicated to customers about the service and products.\nWas independently contracted.\nWas able to work alone efficiently.\n\nMissionary | Church of Jesus Christ of Latter-day Saints | Sacramento, California 2018 - 2020\n\n\n\nAccomplished daily tasks on a schedule.\nProvided service to the community and others.\nIn a leadership position to help guide and direct those in my area.\nAble to overcome challenges and hardships.\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "index.html",
@@ -139,105 +21,18 @@
     "text": "MarkDown Basics"
   },
   {
-    "objectID": "competition.html",
-    "href": "competition.html",
+    "objectID": "cleansing.html",
+    "href": "cleansing.html",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
   },
   {
-    "objectID": "competition.html#title-2-header",
-    "href": "competition.html#title-2-header",
+    "objectID": "cleansing.html#title-2-header",
+    "href": "cleansing.html#title-2-header",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "ml.html",
-    "href": "ml.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "ml.html#title-2-header",
-    "href": "ml.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Logan Clark",
-    "section": "",
-    "text": "(208)530-1980 | loganjclark@gmail.com | www.linkedin.com/in/logan-clark\n\nEducation\nBachelors of Science | Brigham Young University - Idaho | Rexburg, Idaho January 2021 - Present\n\n\n\nMajor in Computer Information Technology\n\n\nGPA: 3.8\n\n\nDiploma, Skyline High School\n\n\n\nParticipated in baseball all four years.\nReceived a certification in Word and PowerPoint.\n\n\n\n\nTechnical Skills\n\nProgramming Languages: C# | Python | MySQL\n\n\nExperience with CLI to solve problems with databases as well as creating and managing filesytems. | Able to work proficiently in a team scenario as well as manage a team.\n\n\n\n\nProjects\n\nWrote a contact book application using python to store personal contacts. This project included locally storing the data, adding new contact records, deleting, and modifying existing contact records and the ablility to look up information by contact phone number.\n\n\nDeveloped a point tracking system for stores using C#. Functionality delivered included the ability to parse a receipt and store specific information in a text file as well as keeping a record of point totals and your reward level.\nDesigned a database to be used by a Major League Baseball team (MLB). This includes an Entity Relationship Diagram (ERD) that shows the relationships between all the different tables.\nCurrently I am working on a website for my web frontend development class. I am coding it in HTML, CSS, and JavaScript.\n\n\n\nExperience\nSales Representative | ZAGG | Idaho Falls, Idaho 2021- Present\n\n\n\nAccomplished daily tasks that were assigned to me.\nEffectively communicate sales and promotions.\nResponsible for closing and counting the till.\nFixed customers phones.\nProblem solved why phones were not working.\n\nSales Representative | Aptive Enviromental | Fort Worth, Texas Summer 2022\n\n\n\nSold pest control door to door.\nEffectively communicated to customers about the service and products.\nWas independently contracted.\nWas able to work alone efficiently.\n\nMissionary | Church of Jesus Christ of Latter-day Saints | Sacramento, California 2018 - 2020\n\n\n\nAccomplished daily tasks on a schedule.\nProvided service to the community and others.\nIn a leadership position to help guide and direct those in my area.\nAble to overcome challenges and hardships.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "Projects/project1.html",
-    "href": "Projects/project1.html",
-    "title": "Client Report - Whats in a name?",
-    "section": "",
-    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#elevator-pitch",
-    "href": "Projects/project1.html#elevator-pitch",
-    "title": "Client Report - Whats in a name?",
-    "section": "",
-    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#birth-name",
-    "href": "Projects/project1.html#birth-name",
-    "title": "Client Report - Whats in a name?",
-    "section": "Birth Name",
-    "text": "Birth Name\nHow does your name at your birth year compare to its use historically?\nFor my name and it’s use historically it is in the middle of it’s popularity. From 2000 and on you can see a huge increase in use of the name of Logan.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Logan\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Logan Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2000,\n        x1=2000,\n        y0=0,\n        y1=10000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2000,\n    y=10000,\n    text='Birth Year',\n    showarrow=True,\n    arrowhead=1,\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#age-of-brittany",
-    "href": "Projects/project1.html#age-of-brittany",
-    "title": "Client Report - Whats in a name?",
-    "section": "Age of Brittany",
-    "text": "Age of Brittany\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nI would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Brittany\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Brittany Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1990,\n        x1=1990,\n        y0=0,\n        y1=40000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1990,\n    y=40000,\n    text='34 Years Old',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#bible-names",
-    "href": "Projects/project1.html#bible-names",
-    "title": "Client Report - Whats in a name?",
-    "section": "Bible Names",
-    "text": "Bible Names\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#popular-movie-name",
-    "href": "Projects/project1.html#popular-movie-name",
-    "title": "Client Report - Whats in a name?",
-    "section": "Popular Movie Name",
-    "text": "Popular Movie Name\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic. After the sixth movie there was a decline in the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_trace(go.Scatter(\n    x=[2001, 2003, 2013],\n    y=[3387, 5216, 6306],\n    mode=\"markers\",\n    name=\"Release Dates\",\n    textposition=\"top center\"\n))\n\nfig.add_annotation(\n    x=2001,\n    y=3387,\n    text='Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n    ax=40,\n    ay=55\n)\n\nfig.add_annotation(\n    x=2013,\n    y=6306,\n    text='Fast 6 (2013)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.add_annotation(\n    x=2003,\n    y=5216,\n    text='2 Fast 2 Furious (2003)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
   },
   {
     "objectID": "Projects/project2.html",
@@ -317,15 +112,136 @@
     ]
   },
   {
-    "objectID": "full_stack.html",
-    "href": "full_stack.html",
+    "objectID": "Projects/project3.html",
+    "href": "Projects/project3.html",
+    "title": "Client Report - Relationships in Baseball",
+    "section": "",
+    "text": "There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)\n\n\nHighlight the Questions and Tasks",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#elevator-pitch",
+    "href": "Projects/project3.html#elevator-pitch",
+    "title": "Client Report - Relationships in Baseball",
+    "section": "",
+    "text": "There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)\n\n\nHighlight the Questions and Tasks",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#professional-byu-idaho-players",
+    "href": "Projects/project3.html#professional-byu-idaho-players",
+    "title": "Client Report - Relationships in Baseball",
+    "section": "Professional BYU-Idaho Players",
+    "text": "Professional BYU-Idaho Players\nWrite an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.\nThere are only two players that went to BYU-Idaho and then went on to play at a higher level. They were lindsma01 and stephga01.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT DISTINCT collegeplaying.playerID\n,      collegeplaying.schoolID\n,      salaries.salary\n,      salaries.yearID\n,      salaries.teamID\nFROM   collegeplaying\nLEFT JOIN   salaries\nON     salaries.playerID = collegeplaying.playerID\nWHERE  collegeplaying.schoolID = 'idbyuid'\nORDER BY salaries.salary DESC;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nschoolID\nsalary\nyearID\nteamID\n\n\n\n\n0\nlindsma01\nidbyuid\n4000000.0\n2014.0\nCHA\n\n\n1\nlindsma01\nidbyuid\n3600000.0\n2012.0\nBAL\n\n\n2\nlindsma01\nidbyuid\n2800000.0\n2011.0\nCOL\n\n\n3\nlindsma01\nidbyuid\n2300000.0\n2013.0\nCHA\n\n\n4\nlindsma01\nidbyuid\n1625000.0\n2010.0\nHOU\n\n\n5\nstephga01\nidbyuid\n1025000.0\n2001.0\nSLN\n\n\n6\nstephga01\nidbyuid\n900000.0\n2002.0\nSLN\n\n\n7\nstephga01\nidbyuid\n800000.0\n2003.0\nSLN\n\n\n8\nstephga01\nidbyuid\n550000.0\n2000.0\nSLN\n\n\n9\nlindsma01\nidbyuid\n410000.0\n2009.0\nFLO\n\n\n10\nlindsma01\nidbyuid\n395000.0\n2008.0\nFLO\n\n\n11\nlindsma01\nidbyuid\n380000.0\n2007.0\nFLO\n\n\n12\nstephga01\nidbyuid\n215000.0\n1999.0\nSLN\n\n\n13\nstephga01\nidbyuid\n185000.0\n1998.0\nPHI\n\n\n14\nstephga01\nidbyuid\n150000.0\n1997.0\nPHI\n\n\n15\ncatetr01\nidbyuid\nNaN\nNaN\nNone",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#batting-averages",
+    "href": "Projects/project3.html#batting-averages",
+    "title": "Client Report - Relationships in Baseball",
+    "section": "Batting Averages",
+    "text": "Batting Averages\nThis three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)\nA. Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.\nThere are a lot of players with only one hit and one at bat which in turns makes them have a good batting average.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT DISTINCT playerID\n,    yearID\n,    H\n,    AB\n,    ROUND((1.0*H)/AB, 3) as 'BA'\nFROM batting\nWHERE AB &gt;= 1\nORDER BY ROUND((1.0*H)/AB, 3) DESC\n,        playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\naberal01\n1957\n1\n1\n1.0\n\n\n1\nabernte02\n1960\n1\n1\n1.0\n\n\n2\nabramge01\n1923\n1\n1\n1.0\n\n\n3\nacklefr01\n1964\n1\n1\n1.0\n\n\n4\nalanirj01\n2019\n1\n1\n1.0\n\n\n\n\n\n\n\n\nB. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.\nThere is a drop in batting average. Players who have more games too a .400 hit to their batting average.\n\n\nShow the code\nq = '''\nSELECT playerID\n,    yearID\n,    H\n,    AB\n,    ROUND((1.0*H)/AB, 3) as 'BA'\nFROM batting\nWHERE AB &gt;= 10\nORDER BY ROUND((1.0*H)/AB, 3) DESC\n,        playerID ASC\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nBA\n\n\n\n\n0\nnymanny01\n1974\n9\n14\n0.643\n\n\n1\ncarsoma01\n2013\n7\n11\n0.636\n\n\n2\naltizda01\n1910\n6\n10\n0.600\n\n\n3\njohnsde01\n1975\n6\n10\n0.600\n\n\n4\nsilvech01\n1948\n8\n14\n0.571\n\n\n\n\n\n\n\n\nC. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.\nThose with over 100 at bats had a significant drop in batting average because they had more at bats and had more chances to strike out or get a hit.\n\n\nShow the code\nq = '''\nSELECT DISTINCT playerID\n,    yearID\n,    SUM(H) AS 'Total Hits'\n,    SUM(AB) AS 'Total At Bats'\n,    ROUND((1.0*H)/AB, 3) as 'BA'\nFROM batting\nGROUP BY playerID\nHAVING AB &gt;= 100\nLIMIT 5;\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nTotal Hits\nTotal At Bats\nBA\n\n\n\n\n0\naaronha01\n1954\n3771\n12364\n0.280\n\n\n1\naaronto01\n1962\n216\n944\n0.231\n\n\n2\nabbeych01\n1893\n493\n1756\n0.259\n\n\n3\nabbotfr01\n1903\n107\n513\n0.235\n\n\n4\nabercre01\n2006\n86\n386\n0.212",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project3.html#cleveland-compared-to-oakland",
+    "href": "Projects/project3.html#cleveland-compared-to-oakland",
+    "title": "Client Report - Relationships in Baseball",
+    "section": "Cleveland Compared to Oakland",
+    "text": "Cleveland Compared to Oakland\nPick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?\nCleveland had a huge paycut between the years of 2001 and 2004. On the other hand Oakland has consistenly getting a pay increase. On average I would want to play for Oakland because there is potential that I could increase my salary more than if I stayed at Cleveland.\n\n\nRead and format data\n# Include and execute your code here\nq = '''\nSELECT yearID\n,      teamID\n,      AVG(salary) AS avg_salary\nFROM salaries\nWHERE yearID BETWEEN 2000 AND 2016\nAND teamID IN ('CLE', 'OAK')\nGROUP BY yearID, teamID;\n\n'''\n\ndf = pd.read_sql_query(q,con)\ndf\n\n\n\n\n\n\n\n\n\n\nyearID\nteamID\navg_salary\n\n\n\n\n0\n2000\nCLE\n2.918491e+06\n\n\n1\n2000\nOAK\n1.184123e+06\n\n\n2\n2001\nCLE\n3.105067e+06\n\n\n3\n2001\nOAK\n1.252250e+06\n\n\n4\n2002\nCLE\n2.630315e+06\n\n\n5\n2002\nOAK\n1.481636e+06\n\n\n6\n2003\nCLE\n1.567253e+06\n\n\n7\n2003\nOAK\n1.933109e+06\n\n\n8\n2004\nCLE\n1.143977e+06\n\n\n9\n2004\nOAK\n2.122345e+06\n\n\n10\n2005\nCLE\n1.431121e+06\n\n\n11\n2005\nOAK\n2.131760e+06\n\n\n12\n2006\nCLE\n2.241260e+06\n\n\n13\n2006\nOAK\n2.489723e+06\n\n\n14\n2007\nCLE\n2.126664e+06\n\n\n15\n2007\nOAK\n2.834534e+06\n\n\n16\n2008\nCLE\n3.037310e+06\n\n\n17\n2008\nOAK\n1.713112e+06\n\n\n18\n2009\nCLE\n3.021451e+06\n\n\n19\n2009\nOAK\n2.292963e+06\n\n\n20\n2010\nCLE\n2.110482e+06\n\n\n21\n2010\nOAK\n1.726716e+06\n\n\n22\n2011\nCLE\n1.681951e+06\n\n\n23\n2011\nOAK\n2.376304e+06\n\n\n24\n2012\nCLE\n2.704493e+06\n\n\n25\n2012\nOAK\n1.845750e+06\n\n\n26\n2013\nCLE\n2.706136e+06\n\n\n27\n2013\nOAK\n1.939758e+06\n\n\n28\n2014\nCLE\n3.159688e+06\n\n\n29\n2014\nOAK\n2.784938e+06\n\n\n30\n2015\nCLE\n3.022888e+06\n\n\n31\n2015\nOAK\n2.823339e+06\n\n\n32\n2016\nCLE\n2.752293e+06\n\n\n33\n2016\nOAK\n2.893541e+06\n\n\n\n\n\n\n\n\n\n\nShow the code\nfig = px.line(df, x='yearID', y='avg_salary', color='teamID', title='Average Salary Comparison between CLE and OAK from 2000 to 2016')\n\nfig.update_layout(xaxis_title='Year', yaxis_title='Average Salary')\n\nfig.add_annotation(x=2004, y=1143977, text='Lowest Salary. 1.1M', showarrow=True, arrowhead=1, ax=0, ay=20)\n\nfig.add_annotation(x=2014, y=3159688, text='Highest Salary. 3.1M', showarrow=True, arrowhead=1, ax=0, ay=-40)\n\nfig.add_annotation(x=2016, y=2893541, text='Highest Salary. 2.9M', showarrow=True, arrowhead=1, ax=20, ay=40)\n\nfig.add_annotation(x=2000, y=1184123, text='Lowest Salary. 1.9M', showarrow=True, arrowhead=1, ax=0, ay=-40)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 3"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html",
+    "href": "Projects/project1.html",
+    "title": "Client Report - Whats in a name?",
+    "section": "",
+    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#elevator-pitch",
+    "href": "Projects/project1.html#elevator-pitch",
+    "title": "Client Report - Whats in a name?",
+    "section": "",
+    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#birth-name",
+    "href": "Projects/project1.html#birth-name",
+    "title": "Client Report - Whats in a name?",
+    "section": "Birth Name",
+    "text": "Birth Name\nHow does your name at your birth year compare to its use historically?\nFor my name and it’s use historically it is in the middle of it’s popularity. From 2000 and on you can see a huge increase in use of the name of Logan.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Logan\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Logan Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2000,\n        x1=2000,\n        y0=0,\n        y1=10000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2000,\n    y=10000,\n    text='Birth Year',\n    showarrow=True,\n    arrowhead=1,\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#age-of-brittany",
+    "href": "Projects/project1.html#age-of-brittany",
+    "title": "Client Report - Whats in a name?",
+    "section": "Age of Brittany",
+    "text": "Age of Brittany\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nI would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Brittany\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Brittany Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1990,\n        x1=1990,\n        y0=0,\n        y1=40000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1990,\n    y=40000,\n    text='34 Years Old',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#bible-names",
+    "href": "Projects/project1.html#bible-names",
+    "title": "Client Report - Whats in a name?",
+    "section": "Bible Names",
+    "text": "Bible Names\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#popular-movie-name",
+    "href": "Projects/project1.html#popular-movie-name",
+    "title": "Client Report - Whats in a name?",
+    "section": "Popular Movie Name",
+    "text": "Popular Movie Name\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic. After the sixth movie there was a decline in the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_trace(go.Scatter(\n    x=[2001, 2003, 2013],\n    y=[3387, 5216, 6306],\n    mode=\"markers\",\n    name=\"Release Dates\",\n    textposition=\"top center\"\n))\n\nfig.add_annotation(\n    x=2001,\n    y=3387,\n    text='Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n    ax=40,\n    ay=55\n)\n\nfig.add_annotation(\n    x=2013,\n    y=6306,\n    text='Fast 6 (2013)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.add_annotation(\n    x=2003,\n    y=5216,\n    text='2 Fast 2 Furious (2003)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "exploration.html",
+    "href": "exploration.html",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
   },
   {
-    "objectID": "full_stack.html#title-2-header",
-    "href": "full_stack.html#title-2-header",
+    "objectID": "exploration.html#title-2-header",
+    "href": "exploration.html#title-2-header",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
@@ -340,6 +256,90 @@
   {
     "objectID": "story_telling.html#title-2-header",
     "href": "story_telling.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "DS250 Projects",
+    "section": "",
+    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5",
+    "crumbs": [
+      "DS250 Projects"
+    ]
+  },
+  {
+    "objectID": "projects.html#repo-for-all-my-projects",
+    "href": "projects.html#repo-for-all-my-projects",
+    "title": "DS250 Projects",
+    "section": "",
+    "text": "Project 1\nProject 2\nProject 3\nProject 4\nProject 5",
+    "crumbs": [
+      "DS250 Projects"
+    ]
+  },
+  {
+    "objectID": "Projects/project4.html",
+    "href": "Projects/project4.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
+    "objectID": "Projects/project5.html",
+    "href": "Projects/project5.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "full_stack.html",
+    "href": "full_stack.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "full_stack.html#title-2-header",
+    "href": "full_stack.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "competition.html",
+    "href": "competition.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "competition.html#title-2-header",
+    "href": "competition.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "ml.html",
+    "href": "ml.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "ml.html#title-2-header",
+    "href": "ml.html#title-2-header",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
