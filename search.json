@@ -116,7 +116,7 @@
     "href": "Projects/project3.html",
     "title": "Client Report - Relationships in Baseball",
     "section": "",
-    "text": "There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)\n\n\nHighlight the Questions and Tasks",
+    "text": "There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)",
     "crumbs": [
       "DS250 Projects",
       "Project 3"
@@ -127,7 +127,7 @@
     "href": "Projects/project3.html#elevator-pitch",
     "title": "Client Report - Relationships in Baseball",
     "section": "",
-    "text": "There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)\n\n\nHighlight the Questions and Tasks",
+    "text": "There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.\n\n\nRead and format project data\n# Include and execute your code here\nsqlite_file = 'lahmansbaseballdb.sqlite'\ncon = sqlite3.connect(sqlite_file)",
     "crumbs": [
       "DS250 Projects",
       "Project 3"
