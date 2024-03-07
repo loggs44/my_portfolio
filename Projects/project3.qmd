@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - Relationships in Baseball"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Logan Clark"
 format:
   html:
     self-contained: true
@@ -33,17 +33,9 @@ import plotly.express as px
 import sqlite3
 ```
 
-```{python}
-# %%
-# Upgrade pip if needed
-import sys
-!{sys.executable} -m pip install --upgrade pip
-```
-
-
 ## Elevator pitch
 
-There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. 
+There were only two players in the history of baseball that went to BYU-Idaho and then moved on to play at higher levels in baseball. There were a lot of ball players that have played one game and gotten a hit making them have a good batting average. The ones that impress me the most were the ones with more than 100 games and had over a 600 batting average. Cleveland has had way bigger drops in salary and have payed the least when that happens. Oakland has followed the trend of going up and getting pay increases.
 
 ```{python}
 #| label: project data
@@ -55,7 +47,7 @@ con = sqlite3.connect(sqlite_file)
 
 __Highlight the Questions and Tasks__
 
-## QUESTION|TASK 1
+## Professional BYU-Idaho Players
 
 Write an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.
 
@@ -66,13 +58,13 @@ There are only two players that went to BYU-Idaho and then went on to play at a 
 #| code-summary: Read and format data
 # Include and execute your code here
 q = '''
-SELECT salaries.playerID
+SELECT DISTINCT collegeplaying.playerID
 ,      collegeplaying.schoolID
 ,      salaries.salary
 ,      salaries.yearID
 ,      salaries.teamID
-FROM   salaries
-JOIN   collegeplaying 
+FROM   collegeplaying
+LEFT JOIN   salaries
 ON     salaries.playerID = collegeplaying.playerID
 WHERE  collegeplaying.schoolID = 'idbyuid'
 ORDER BY salaries.salary DESC;
@@ -82,36 +74,28 @@ df = pd.read_sql_query(q,con)
 df
 ```
 
-## QUESTION|TASK 2
+## Batting Averages
 
 This three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)
 
 A. Write an SQL query that provides playerID, yearID, and     batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.
 
-B. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.
-
-C. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.
-
-_type your results and analysis here_
+There are a lot of players with only one hit and one at bat which in turns makes them have a good batting average.
 
 ```{python}
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
 q = '''
-SELECT
-    playerID,
-    yearID,
-    H,
-    AB,
-    CAST(H AS FLOAT)/AB as 'BA'
-FROM
-    batting
-WHERE
-    AB >= 1
-ORDER BY
-    BA DESC,
-    playerID ASC
+SELECT DISTINCT playerID
+,    yearID
+,    H
+,    AB
+,    ROUND((1.0*H)/AB, 3) as 'BA'
+FROM batting
+WHERE AB >= 1
+ORDER BY ROUND((1.0*H)/AB, 3) DESC
+,        playerID ASC
 LIMIT 5;
 '''
 
@@ -119,21 +103,20 @@ df = pd.read_sql_query(q,con)
 df
 ```
 
+B. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.
+
+There is a drop in batting average. Players who have more games too a .400 hit to their batting average.
 ``` {python}
 q = '''
-SELECT
-    playerID,
-    yearID,
-    H,
-    AB,
-    CAST(H AS FLOAT)/AB as 'BA'
-FROM
-    batting
-WHERE
-    AB >= 10
-ORDER BY
-    BA DESC,
-    playerID ASC
+SELECT playerID
+,    yearID
+,    H
+,    AB
+,    ROUND((1.0*H)/AB, 3) as 'BA'
+FROM batting
+WHERE AB >= 10
+ORDER BY ROUND((1.0*H)/AB, 3) DESC
+,        playerID ASC
 LIMIT 5;
 '''
 
@@ -141,21 +124,19 @@ df = pd.read_sql_query(q,con)
 df
 ```
 
+C. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.
+
+Those with over 100 at bats had a significant drop in batting average because they had more at bats and had more chances to strike out or get a hit.
 ```{python}
 q = '''
-SELECT
-    playerID,
-    yearID,
-    H,
-    AB,
-    CAST(H AS FLOAT)/AB as 'BA'
-FROM
-    batting
-WHERE
-    AB >= 100
-ORDER BY
-    BA DESC,
-    playerID ASC
+SELECT DISTINCT playerID
+,    yearID
+,    SUM(H) AS 'Total Hits'
+,    SUM(AB) AS 'Total At Bats'
+,    ROUND((1.0*H)/AB, 3) as 'BA'
+FROM batting
+GROUP BY playerID
+HAVING AB >= 100
 LIMIT 5;
 '''
 
@@ -164,28 +145,24 @@ df
 
 ```
 
-## QUESTION|TASK 3
+## Cleveland Compared to Oakland
 
 Pick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Plotly Express to visualize the comparison. What do you learn?
 
-Cleveland has had an average salary in the 2000s for $2.4 million. Oakland has had a little bit less with $2.1 million. Salary for the two organizations seem low for the league. Cleveland pays more than Oakland does on average.
+Cleveland had a huge paycut between the years of 2001 and 2004. On the other hand Oakland has consistenly getting a pay increase. On average I would want to play for Oakland because there is potential that I could increase my salary more than if I stayed at Cleveland.
 
 ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
 q = '''
-SELECT
-    teamID,
-    yearID,
-    AVG(salary) AS avg_salary
-FROM
-    salaries
-WHERE
-    yearID BETWEEN 2000 AND 2016
-    AND teamID IN ('CLE', 'OAK')
-GROUP BY
-    teamID;
+SELECT yearID
+,      teamID
+,      AVG(salary) AS avg_salary
+FROM salaries
+WHERE yearID BETWEEN 2000 AND 2016
+AND teamID IN ('CLE', 'OAK')
+GROUP BY yearID, teamID;
 
 '''
 
@@ -194,8 +171,17 @@ df
 
 ```
 ```{python}
-fig = px.bar(df, x='teamID', y='avg_salary', title='Average Salary Comparison between CLE and OAK from 2000 to 2016')
-fig.update_layout(xaxis_title='Team', yaxis_title='Average Salary')
+fig = px.line(df, x='yearID', y='avg_salary', color='teamID', title='Average Salary Comparison between CLE and OAK from 2000 to 2016')
+
+fig.update_layout(xaxis_title='Year', yaxis_title='Average Salary')
+
+fig.add_annotation(x=2004, y=1143977, text='Lowest Salary. 1.1M', showarrow=True, arrowhead=1, ax=0, ay=20)
+
+fig.add_annotation(x=2014, y=3159688, text='Highest Salary. 3.1M', showarrow=True, arrowhead=1, ax=0, ay=-40)
+
+fig.add_annotation(x=2016, y=2893541, text='Highest Salary. 2.9M', showarrow=True, arrowhead=1, ax=20, ay=40)
+
+fig.add_annotation(x=2000, y=1184123, text='Lowest Salary. 1.9M', showarrow=True, arrowhead=1, ax=0, ay=-40)
 
 fig.show()
 ```
