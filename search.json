@@ -1,10 +1,31 @@
 [
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Logan Clark",
+    "objectID": "ml.html",
+    "href": "ml.html",
+    "title": "about me",
     "section": "",
-    "text": "(208)530-1980 | loganjclark@gmail.com | www.linkedin.com/in/logan-clark\n\nEducation\nBachelors of Science | Brigham Young University - Idaho | Rexburg, Idaho January 2021 - Present\n\n\n\nMajor in Computer Information Technology\n\n\nGPA: 3.8\n\n\nDiploma, Skyline High School\n\n\n\nParticipated in baseball all four years.\nReceived a certification in Word and PowerPoint.\n\n\n\n\nTechnical Skills\n\nProgramming Languages: C# | Python | MySQL\n\n\nExperience with CLI to solve problems with databases as well as creating and managing filesytems. | Able to work proficiently in a team scenario as well as manage a team.\n\n\n\n\nProjects\n\nWrote a contact book application using python to store personal contacts. This project included locally storing the data, adding new contact records, deleting, and modifying existing contact records and the ablility to look up information by contact phone number.\n\n\nDeveloped a point tracking system for stores using C#. Functionality delivered included the ability to parse a receipt and store specific information in a text file as well as keeping a record of point totals and your reward level.\nDesigned a database to be used by a Major League Baseball team (MLB). This includes an Entity Relationship Diagram (ERD) that shows the relationships between all the different tables.\nCurrently I am working on a website for my web frontend development class. I am coding it in HTML, CSS, and JavaScript.\n\n\n\nExperience\nSales Representative | ZAGG | Idaho Falls, Idaho 2021- Present\n\n\n\nAccomplished daily tasks that were assigned to me.\nEffectively communicate sales and promotions.\nResponsible for closing and counting the till.\nFixed customers phones.\nProblem solved why phones were not working.\n\nSales Representative | Aptive Enviromental | Fort Worth, Texas Summer 2022\n\n\n\nSold pest control door to door.\nEffectively communicated to customers about the service and products.\nWas independently contracted.\nWas able to work alone efficiently.\n\nMissionary | Church of Jesus Christ of Latter-day Saints | Sacramento, California 2018 - 2020\n\n\n\nAccomplished daily tasks on a schedule.\nProvided service to the community and others.\nIn a leadership position to help guide and direct those in my area.\nAble to overcome challenges and hardships.\n\n\n\n\n\n\n Back to top"
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "ml.html#title-2-header",
+    "href": "ml.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "exploration.html",
+    "href": "exploration.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "exploration.html#title-2-header",
+    "href": "exploration.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
   },
   {
     "objectID": "index.html",
@@ -16,6 +37,20 @@
   {
     "objectID": "index.html#title-2-header",
     "href": "index.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "full_stack.html",
+    "href": "full_stack.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "full_stack.html#title-2-header",
+    "href": "full_stack.html#title-2-header",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
@@ -33,6 +68,72 @@
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "Projects/project1.html",
+    "href": "Projects/project1.html",
+    "title": "Client Report - Whats in a name?",
+    "section": "",
+    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#elevator-pitch",
+    "href": "Projects/project1.html#elevator-pitch",
+    "title": "Client Report - Whats in a name?",
+    "section": "",
+    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#birth-name",
+    "href": "Projects/project1.html#birth-name",
+    "title": "Client Report - Whats in a name?",
+    "section": "Birth Name",
+    "text": "Birth Name\nHow does your name at your birth year compare to its use historically?\nFor my name and it’s use historically it is in the middle of it’s popularity. From 2000 and on you can see a huge increase in use of the name of Logan.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Logan\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Logan Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2000,\n        x1=2000,\n        y0=0,\n        y1=10000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2000,\n    y=10000,\n    text='Birth Year',\n    showarrow=True,\n    arrowhead=1,\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#age-of-brittany",
+    "href": "Projects/project1.html#age-of-brittany",
+    "title": "Client Report - Whats in a name?",
+    "section": "Age of Brittany",
+    "text": "Age of Brittany\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nI would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Brittany\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Brittany Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1990,\n        x1=1990,\n        y0=0,\n        y1=40000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1990,\n    y=40000,\n    text='34 Years Old',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#bible-names",
+    "href": "Projects/project1.html#bible-names",
+    "title": "Client Report - Whats in a name?",
+    "section": "Bible Names",
+    "text": "Bible Names\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
+  },
+  {
+    "objectID": "Projects/project1.html#popular-movie-name",
+    "href": "Projects/project1.html#popular-movie-name",
+    "title": "Client Report - Whats in a name?",
+    "section": "Popular Movie Name",
+    "text": "Popular Movie Name\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic. After the sixth movie there was a decline in the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_trace(go.Scatter(\n    x=[2001, 2003, 2013],\n    y=[3387, 5216, 6306],\n    mode=\"markers\",\n    name=\"Release Dates\",\n    textposition=\"top center\"\n))\n\nfig.add_annotation(\n    x=2001,\n    y=3387,\n    text='Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n    ax=40,\n    ay=55\n)\n\nfig.add_annotation(\n    x=2013,\n    y=6306,\n    text='Fast 6 (2013)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.add_annotation(\n    x=2003,\n    y=5216,\n    text='2 Fast 2 Furious (2003)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   },
   {
     "objectID": "Projects/project2.html",
@@ -112,6 +213,72 @@
     ]
   },
   {
+    "objectID": "Projects/project4.html",
+    "href": "Projects/project4.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "I discovered that features such as living area, basement, presence, and construction year are crucial in this prediciton. Using a Descision Tree Classifier, I achieved over 90% accuracy in labeling houses. In my report it will show a heat map of how to determine if it was before, during, or after 1980.\n\n\nRead and format project data\n# Include and execute your code here\ndwellings_ml = pd.read_csv('https://github.com/byuidatascience/data4dwellings/raw/master/data-raw/dwellings_ml/dwellings_ml.csv')",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
+    "objectID": "Projects/project4.html#elevator-pitch",
+    "href": "Projects/project4.html#elevator-pitch",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "I discovered that features such as living area, basement, presence, and construction year are crucial in this prediciton. Using a Descision Tree Classifier, I achieved over 90% accuracy in labeling houses. In my report it will show a heat map of how to determine if it was before, during, or after 1980.\n\n\nRead and format project data\n# Include and execute your code here\ndwellings_ml = pd.read_csv('https://github.com/byuidatascience/data4dwellings/raw/master/data-raw/dwellings_ml/dwellings_ml.csv')",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
+    "objectID": "Projects/project4.html#relationship-between-home-variables-and-before1980",
+    "href": "Projects/project4.html#relationship-between-home-variables-and-before1980",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "Relationship Between Home Variables and before1980",
+    "text": "Relationship Between Home Variables and before1980\nCreate 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.\nFrom these charts, we can conclude that certain home variables such as the size of the living area, the presence of a basement, and the year the house was built are important factors in determining whether a house was built before or after 1980. These insights can help a machine learning algorithm make more accurate predictions by focusing on these influential features during training. Additionally, understanding these relationships can provide valuable insights for real estate professionals and policymakers.\n\n\nRead and format data\n# Include and execute your code here\n# Feature selection: select features excluding 'before1980', 'yrbuilt', and 'parcel' columns\nX_pred = dwellings_ml.drop(dwellings_ml.filter(regex='before1980|yrbuilt|parcel').columns, axis=1)\n\n# Target variable\ny_pred = dwellings_ml.filter(regex=\"before1980\")\n\n# Split data into train and test sets\nX_train, X_test, y_train, y_test = train_test_split(X_pred, y_pred, test_size=0.34, random_state=76)\n\n# Initialize and train DecisionTreeClassifier\nclf = tree.DecisionTreeClassifier()\nclf = clf.fit(X_train, y_train)\n\n# Predictions\ny_pred = clf.predict(X_test)\n\n# Predicted probabilities\ny_probs = clf.predict_proba(X_test)\n\nh_subset = dwellings_ml.filter(\n    ['livearea', 'finbsmnt', 'basement', \n    'yearbuilt', 'nocars', 'numbdrm', 'numbaths', 'before1980',\n    'stories', 'yrbuilt']).sample(500)\nchart = px.scatter_matrix(h_subset,\n    dimensions=['livearea', 'finbsmnt', 'basement'],\n    color='before1980'\n)\nchart.update_traces(diagonal_visible=False)\nchart.show()",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
+    "objectID": "Projects/project4.html#build-a-classification-model",
+    "href": "Projects/project4.html#build-a-classification-model",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "Build a Classification Model",
+    "text": "Build a Classification Model\nBuild a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.\nThe classification model for labeling houses as built “before 1980” or “during or after 1980” achieved over 90% accuracy using a Decision Tree Classifier. Features excluding ‘before1980’, ‘yrbuilt’, and ‘parcel’ columns were selected for training the model, which was then evaluated using metrics such as accuracy, precision, recall, and F1-score. Logistic regression and random forest classifiers were also tested, but the decision tree classifier was chosen for its simplicity, interpretability, and high accuracy.\n\n\nRead and format data\n# Include and execute your code here\nprint(metrics.classification_report(y_pred, y_test))\n\n\n              precision    recall  f1-score   support\n\n           0       0.88      0.85      0.87      2977\n           1       0.91      0.93      0.92      4814\n\n    accuracy                           0.90      7791\n   macro avg       0.90      0.89      0.89      7791\nweighted avg       0.90      0.90      0.90      7791",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
+    "objectID": "Projects/project4.html#justify-choice",
+    "href": "Projects/project4.html#justify-choice",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "Justify Choice",
+    "text": "Justify Choice\nJustify your classification model by discussing the most important features selected by your model. This discussion should include a chart and a description of the features.\nBased on the chart, it is evident that the most important features are ‘livearea’, ‘yearbuilt’, and ‘basement’. ‘Livearea’ refers to the total living area of the house, which could be indicative of the size and layout of the property. ‘Yearbuilt’ directly indicates when the house was constructed and is crucial for determining its age. Lastly, ‘basement’ signifies whether the property has a basement or not, which could influence its construction style and value. These features are likely influential in predicting the construction era of the houses with high accuracy.\n\n\nRead and format data\n# Include and execute your code here\ndf_features = pd.DataFrame(\n    {'f_names': X_train.columns, \n    'f_values': clf.feature_importances_}).sort_values('f_values', ascending = False)\n\nchart = px.bar(df_features.head(10),\n    x='f_values', \n    y='f_names'\n)\n\nchart.update_layout(yaxis={'categoryorder':'total ascending'})",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
+    "objectID": "Projects/project4.html#quality-of-classification-model",
+    "href": "Projects/project4.html#quality-of-classification-model",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "Quality of Classification Model",
+    "text": "Quality of Classification Model\nDescribe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.\nHigh accuracy indicates that the model is making correct predictions overall. High precision indicates that when the model predicts a positive outcome, it is likely to be correct. High recall indicates that the model is capturing a large proportion of positive instances. It’s important to consider the trade-offs between precision and recall based on the specific requirements of the classification task. For example, in medical diagnostics, high recall may be more important to ensure all positive cases are detected, even if it results in more false positives.\n\n\nRead and format data\n# Include and execute your code here\naccuracy = metrics.accuracy_score(y_test, y_pred)\nprecision = metrics.precision_score(y_test, y_pred)\nrecall = metrics.recall_score(y_test, y_pred)\n\nprint(f\"Accuracy: {accuracy:.2f}\")\nprint(f\"Precision: {precision:.2f}\")\nprint(f\"Recall: {recall:.2f}\")\n\n\nAccuracy: 0.90\nPrecision: 0.93\nRecall: 0.91",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 4"
+    ]
+  },
+  {
     "objectID": "Projects/project3.html",
     "href": "Projects/project3.html",
     "title": "Client Report - Relationships in Baseball",
@@ -167,98 +334,15 @@
     ]
   },
   {
-    "objectID": "Projects/project1.html",
-    "href": "Projects/project1.html",
-    "title": "Client Report - Whats in a name?",
+    "objectID": "Projects/project5.html",
+    "href": "Projects/project5.html",
+    "title": "Client Report - [Insert Project Title]",
     "section": "",
-    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
+    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "DS250 Projects",
-      "Project 1"
+      "Project 5"
     ]
-  },
-  {
-    "objectID": "Projects/project1.html#elevator-pitch",
-    "href": "Projects/project1.html#elevator-pitch",
-    "title": "Client Report - Whats in a name?",
-    "section": "",
-    "text": "The use of bible names like Peter, Mary, and Matha have all seen a decrease in usage. On the other hand names like Dominica and Logan have a seen a dramatic increase in usage. If you were born before 1980 you would be named from the bible. If you were born after 1980 you would be named from a more modern book or movie.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#birth-name",
-    "href": "Projects/project1.html#birth-name",
-    "title": "Client Report - Whats in a name?",
-    "section": "Birth Name",
-    "text": "Birth Name\nHow does your name at your birth year compare to its use historically?\nFor my name and it’s use historically it is in the middle of it’s popularity. From 2000 and on you can see a huge increase in use of the name of Logan.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Logan\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Logan Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=2000,\n        x1=2000,\n        y0=0,\n        y1=10000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=2000,\n    y=10000,\n    text='Birth Year',\n    showarrow=True,\n    arrowhead=1,\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#age-of-brittany",
-    "href": "Projects/project1.html#age-of-brittany",
-    "title": "Client Report - Whats in a name?",
-    "section": "Age of Brittany",
-    "text": "Age of Brittany\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nI would guess the age of 34 years old. The ages that I would not guess are between 44 years old and older as well as 23 years old and younger.\n\n\nRead and format data\n# Include and execute your code here\nfig = px.line(df.query('name == \"Brittany\"'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Brittany Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1990,\n        x1=1990,\n        y0=0,\n        y1=40000,\n        line=dict(color='red', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1990,\n    y=40000,\n    text='34 Years Old',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#bible-names",
-    "href": "Projects/project1.html#bible-names",
-    "title": "Client Report - Whats in a name?",
-    "section": "Bible Names",
-    "text": "Bible Names\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nI noticed that all the names were popular during 1940 and 1960 but they became less popular after 1980.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == [\"Paul\",\"Mary\",\"Martha\",\"Peter\"] and year &gt; 1920 and year &lt; 2000'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='Names Used Per Year')\n\nfig.add_shape(\n    dict(\n        type='line',\n        x0=1950,\n        x1=1950,\n        y0=0,\n        y1=max(df['Total']),\n        line=dict(color='pink', dash='dash'),\n    )\n)\n\nfig.add_annotation(\n    x=1950,\n    y=54000,\n    text='Mary',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1950,\n    y=22000,\n    text='Paul',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1940,\n    y=9000,\n    text='Martha',\n    showarrow=True,\n    arrowhead=4,\n\n)\n\nfig.add_annotation(\n    x=1930,\n    y=3300,\n    text='Peter',\n    showarrow=True,\n    arrowhead=4,\n    ax=0,\n    ay=-40\n\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Projects/project1.html#popular-movie-name",
-    "href": "Projects/project1.html#popular-movie-name",
-    "title": "Client Report - Whats in a name?",
-    "section": "Popular Movie Name",
-    "text": "Popular Movie Name\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nThe release of the first fast and furious was in 2001 and for the next couple of years there was a huge jump in the use of the name Dominic. After the sixth movie there was a decline in the name Dominic.\n\n\nRead and format data\n# Include and execute your code here\n\nfig = px.line(df.query('name == \"Dominic\" and year &gt; 1980'),\n  x=\"year\", \n  y=\"Total\", \n  color='name', \n  title='The Name Dominic Used Per Year')\n\nfig.add_trace(go.Scatter(\n    x=[2001, 2003, 2013],\n    y=[3387, 5216, 6306],\n    mode=\"markers\",\n    name=\"Release Dates\",\n    textposition=\"top center\"\n))\n\nfig.add_annotation(\n    x=2001,\n    y=3387,\n    text='Fast and Furious (2001)',\n    showarrow=True,\n    arrowhead=4,\n    ax=40,\n    ay=55\n)\n\nfig.add_annotation(\n    x=2013,\n    y=6306,\n    text='Fast 6 (2013)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.add_annotation(\n    x=2003,\n    y=5216,\n    text='2 Fast 2 Furious (2003)',\n    showarrow=True,\n    arrowhead=4,\n)\n\nfig.show()",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "exploration.html",
-    "href": "exploration.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "exploration.html#title-2-header",
-    "href": "exploration.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "story_telling.html",
-    "href": "story_telling.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "story_telling.html#title-2-header",
-    "href": "story_telling.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
   },
   {
     "objectID": "projects.html",
@@ -281,42 +365,6 @@
     ]
   },
   {
-    "objectID": "Projects/project4.html",
-    "href": "Projects/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 4"
-    ]
-  },
-  {
-    "objectID": "Projects/project5.html",
-    "href": "Projects/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "DS250 Projects",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "full_stack.html",
-    "href": "full_stack.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "full_stack.html#title-2-header",
-    "href": "full_stack.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
     "objectID": "competition.html",
     "href": "competition.html",
     "title": "about me",
@@ -331,17 +379,24 @@
     "text": "MarkDown Basics"
   },
   {
-    "objectID": "ml.html",
-    "href": "ml.html",
+    "objectID": "story_telling.html",
+    "href": "story_telling.html",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
   },
   {
-    "objectID": "ml.html#title-2-header",
-    "href": "ml.html#title-2-header",
+    "objectID": "story_telling.html#title-2-header",
+    "href": "story_telling.html#title-2-header",
     "title": "about me",
     "section": "",
     "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Logan Clark",
+    "section": "",
+    "text": "(208)530-1980 | loganjclark@gmail.com | www.linkedin.com/in/logan-clark\n\nEducation\nBachelors of Science | Brigham Young University - Idaho | Rexburg, Idaho January 2021 - Present\n\n\n\nMajor in Computer Information Technology\n\n\nGPA: 3.8\n\n\nDiploma, Skyline High School\n\n\n\nParticipated in baseball all four years.\nReceived a certification in Word and PowerPoint.\n\n\n\n\nTechnical Skills\n\nProgramming Languages: C# | Python | MySQL\n\n\nExperience with CLI to solve problems with databases as well as creating and managing filesytems. | Able to work proficiently in a team scenario as well as manage a team.\n\n\n\n\nProjects\n\nWrote a contact book application using python to store personal contacts. This project included locally storing the data, adding new contact records, deleting, and modifying existing contact records and the ablility to look up information by contact phone number.\n\n\nDeveloped a point tracking system for stores using C#. Functionality delivered included the ability to parse a receipt and store specific information in a text file as well as keeping a record of point totals and your reward level.\nDesigned a database to be used by a Major League Baseball team (MLB). This includes an Entity Relationship Diagram (ERD) that shows the relationships between all the different tables.\nCurrently I am working on a website for my web frontend development class. I am coding it in HTML, CSS, and JavaScript.\n\n\n\nExperience\nSales Representative | ZAGG | Idaho Falls, Idaho 2021- Present\n\n\n\nAccomplished daily tasks that were assigned to me.\nEffectively communicate sales and promotions.\nResponsible for closing and counting the till.\nFixed customers phones.\nProblem solved why phones were not working.\n\nSales Representative | Aptive Enviromental | Fort Worth, Texas Summer 2022\n\n\n\nSold pest control door to door.\nEffectively communicated to customers about the service and products.\nWas independently contracted.\nWas able to work alone efficiently.\n\nMissionary | Church of Jesus Christ of Latter-day Saints | Sacramento, California 2018 - 2020\n\n\n\nAccomplished daily tasks on a schedule.\nProvided service to the community and others.\nIn a leadership position to help guide and direct those in my area.\nAble to overcome challenges and hardships.\n\n\n\n\n\n\n Back to top"
   }
 ]
