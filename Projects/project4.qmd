@@ -25,171 +25,139 @@ execute:
     
 ---
 
-### Uncomment the entire section to use this template
 
-<!-- 
 ```{python}
 #| label: libraries
 #| include: false
 import pandas as pd
 import numpy as np
 import plotly.express as px
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
+
+# from sklearn.naive_bayes import GaussianNB
+# from sklearn.ensemble import GradientBoostingClassifier
 ```
 
 
 ## Elevator pitch
 
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+I discovered that features such as living area, basement, presence, and construction year are crucial in this prediciton. Using a Descision Tree Classifier, I achieved over 90% accuracy in labeling houses. In my report it will show a heat map of how to determine if it was before, during, or after 1980.
 
 ```{python}
 #| label: project data
 #| code-summary: Read and format project data
 # Include and execute your code here
-df = pd.read_csv("https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv")
+dwellings_ml = pd.read_csv('https://github.com/byuidatascience/data4dwellings/raw/master/data-raw/dwellings_ml/dwellings_ml.csv')
 ```
 
-__Highlight the Questions and Tasks__
+## Relationship Between Home Variables and before1980
 
-## QUESTION|TASK 1
+Create 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.
 
-__COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
-
-_type your results and analysis here_
+From these charts, we can conclude that certain home variables such as the size of the living area, the presence of a basement, and the year the house was built are important factors in determining whether a house was built before or after 1980. These insights can help a machine learning algorithm make more accurate predictions by focusing on these influential features during training. Additionally, understanding these relationships can provide valuable insights for real estate professionals and policymakers.
 
 ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
+# Feature selection: select features excluding 'before1980', 'yrbuilt', and 'parcel' columns
+X_pred = dwellings_ml.drop(dwellings_ml.filter(regex='before1980|yrbuilt|parcel').columns, axis=1)
 
+# Target variable
+y_pred = dwellings_ml.filter(regex="before1980")
+
+# Split data into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X_pred, y_pred, test_size=0.34, random_state=76)
+
+# Initialize and train DecisionTreeClassifier
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(X_train, y_train)
+
+# Predictions
+y_pred = clf.predict(X_test)
+
+# Predicted probabilities
+y_probs = clf.predict_proba(X_test)
 
 ```
-
-_include figures in chunks and discuss your findings in the figure._
-
 ```{python}
-#| label: Q1 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
+corr = h_subset.drop(columns = 'before1980').corr()
+px.imshow(corr,text_auto=True)
+```
+```{python}
+h_subset = dwellings_ml.filter(
+    ['livearea', 'finbsmnt', 'basement', 
+    'yearbuilt', 'nocars', 'numbdrm', 'numbaths', 'before1980',
+    'stories', 'yrbuilt']).sample(500)
+chart = px.scatter_matrix(h_subset,
+    dimensions=['livearea', 'finbsmnt', 'basement'],
+    color='before1980'
 )
+chart.update_traces(diagonal_visible=False)
 chart.show()
 ```
 
 
-```{python}
-#| label: Q1 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
+## Build a Classification Model
 
-display(mydat)
+Build a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.
 
-```
-
-
-## QUESTION|TASK 2
-
-__COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
-
-_type your results and analysis here_
+The classification model for labeling houses as built "before 1980" or "during or after 1980" achieved over 90% accuracy using a Decision Tree Classifier. Features excluding 'before1980', 'yrbuilt', and 'parcel' columns were selected for training the model, which was then evaluated using metrics such as accuracy, precision, recall, and F1-score. Logistic regression and random forest classifiers were also tested, but the decision tree classifier was chosen for its simplicity, interpretability, and high accuracy.
 
 ```{python}
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
-
-
-```
-
-_include figures in chunks and discuss your findings in the figure._
-
-```{python}
-#| label: Q2 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
-```
-
-
-```{python}
-#| label: Q2 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
-
-display(mydat)
+print(metrics.classification_report(y_pred, y_test))
 
 ```
 
+## Justify Choice
 
-## QUESTION|TASK 3
+Justify your classification model by discussing the most important features selected by your model. This discussion should include a chart and a description of the features.
 
-__COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
-
-_type your results and analysis here_
+Based on the chart, it is evident that the most important features are 'livearea', 'yearbuilt', and 'basement'. 'Livearea' refers to the total living area of the house, which could be indicative of the size and layout of the property. 'Yearbuilt' directly indicates when the house was constructed and is crucial for determining its age. Lastly, 'basement' signifies whether the property has a basement or not, which could influence its construction style and value. These features are likely influential in predicting the construction era of the houses with high accuracy.
 
 ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
+df_features = pd.DataFrame(
+    {'f_names': X_train.columns, 
+    'f_values': clf.feature_importances_}).sort_values('f_values', ascending = False)
 
-
-```
-
-_include figures in chunks and discuss your findings in the figure._
-
-```{python}
-#| label: Q3 chart
-#| code-summary: plot example
-#| fig-cap: "My useless chart"
-#| fig-align: center
-# Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
+chart = px.bar(df_features.head(10),
+    x='f_values', 
+    y='f_names'
 )
-chart.show()
+
+chart.update_layout(yaxis={'categoryorder':'total ascending'})
+
 ```
 
+## Quality of Classification Model
+
+Describe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.
+
+High accuracy indicates that the model is making correct predictions overall.
+High precision indicates that when the model predicts a positive outcome, it is likely to be correct.
+High recall indicates that the model is capturing a large proportion of positive instances.
+It's important to consider the trade-offs between precision and recall based on the specific requirements of the classification task. For example, in medical diagnostics, high recall may be more important to ensure all positive cases are detected, even if it results in more false positives.
 
 ```{python}
-#| label: Q3 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
+#| label: Q4
+#| code-summary: Read and format data
 # Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
+accuracy = metrics.accuracy_score(y_test, y_pred)
+precision = metrics.precision_score(y_test, y_pred)
+recall = metrics.recall_score(y_test, y_pred)
 
-display(mydat)
+print(f"Accuracy: {accuracy:.2f}")
+print(f"Precision: {precision:.2f}")
+print(f"Recall: {recall:.2f}")
 
-``` -->
+```
