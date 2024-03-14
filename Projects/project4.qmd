@@ -37,7 +37,9 @@ from sklearn import tree
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import metrics
-
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_curve, roc_auc_score
+from sklearn.metrics import f1_score, roc_auc_score, matthews_corrcoef
 # from sklearn.naive_bayes import GaussianNB
 # from sklearn.ensemble import GradientBoostingClassifier
 ```
@@ -93,6 +95,23 @@ chart = px.scatter_matrix(h_subset,
 )
 chart.update_traces(diagonal_visible=False)
 chart.show()
+
+# Predicted probabilities
+y_probs = clf.predict_proba(X_test)[:, 1]
+
+# Compute ROC curve
+fpr, tpr, thresholds = roc_curve(y_test, y_probs)
+
+# Compute AUC score
+auc_score = roc_auc_score(y_test, y_probs)
+
+# Create a DataFrame for ROC curve
+roc_df = pd.DataFrame({'False Positive Rate': fpr, 'True Positive Rate': tpr})
+
+# Plot ROC curve using Plotly Express
+fig = px.line(roc_df, x='False Positive Rate', y='True Positive Rate', title=f'ROC Curve (AUC={auc_score:.2f})')
+fig.add_shape(type='line', line=dict(dash='dash'), x0=0, x1=1, y0=0, y1=1)
+fig.show()
 ```
 
 
@@ -137,10 +156,7 @@ chart.update_layout(yaxis={'categoryorder':'total ascending'})
 
 Describe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.
 
-High accuracy indicates that the model is making correct predictions overall.
-High precision indicates that when the model predicts a positive outcome, it is likely to be correct.
-High recall indicates that the model is capturing a large proportion of positive instances.
-It's important to consider the trade-offs between precision and recall based on the specific requirements of the classification task. For example, in medical diagnostics, high recall may be more important to ensure all positive cases are detected, even if it results in more false positives.
+
 
 ```{python}
 #| label: Q4
@@ -154,4 +170,11 @@ print(f"Accuracy: {accuracy:.2f}")
 print(f"Precision: {precision:.2f}")
 print(f"Recall: {recall:.2f}")
 
+f1 = f1_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_test, y_pred)
+mcc = matthews_corrcoef(y_test, y_pred)
+
+print(f"F1 Score: {f1:.2f}")
+print(f"ROC AUC Score: {roc_auc:.2f}")
+print(f"Matthews Correlation Coefficient: {mcc:.2f}")
 ```
