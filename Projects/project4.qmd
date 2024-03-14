@@ -84,12 +84,6 @@ y_pred = clf.predict(X_test)
 # Predicted probabilities
 y_probs = clf.predict_proba(X_test)
 
-
-corr = h_subset.drop(columns = 'before1980').corr()
-px.imshow(corr,text_auto=True)
-
-```
-```{python}
 h_subset = dwellings_ml.filter(
     ['livearea', 'finbsmnt', 'basement', 
     'yearbuilt', 'nocars', 'numbdrm', 'numbaths', 'before1980',
