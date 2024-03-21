@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - Machine Learning"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Logan Clark"
 format:
   html:
     self-contained: true
@@ -39,9 +39,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_curve, roc_auc_score
-from sklearn.metrics import f1_score, roc_auc_score, matthews_corrcoef
-# from sklearn.naive_bayes import GaussianNB
-# from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import f1_score, matthews_corrcoef
 ```
 
 
@@ -60,7 +58,7 @@ dwellings_ml = pd.read_csv('https://github.com/byuidatascience/data4dwellings/ra
 
 Create 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.
 
-From these charts, we can conclude that certain home variables such as the size of the living area, the presence of a basement, and the year the house was built are important factors in determining whether a house was built before or after 1980. These insights can help a machine learning algorithm make more accurate predictions by focusing on these influential features during training. Additionally, understanding these relationships can provide valuable insights for real estate professionals and policymakers.
+From these charts, we can conclude that certain home variables such as the living area, the presence of a basement, and the year the house was built are important factors in determining whether a house was built before or after 1980. In the first chart we can see the heat map of living area, finished basement, and basement compared to the year. The yellow shows the homes before 1980 and the blue shows homes after 1980. The homes that had finished basements were most likley built before 1980. The ROC curve helps us to see how well our guessing is. So in this case we can assume and make a well educated guess if the home was built before or after 1980. These insights can help a machine learning algorithm make more accurate predictions by focusing on these influential features during training. Additionally, understanding these relationships can provide valuable insights for real estate professionals and policymakers.
 
 ```{python}
 #| label: Q1
@@ -156,7 +154,17 @@ chart.update_layout(yaxis={'categoryorder':'total ascending'})
 
 Describe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.
 
+Accuracy: Accuracy measures the proportion of correctly classified instances out of the total instances. It is calculated as the ratio of the number of correct predictions to the total number of predictions. A higher accuracy indicates better performance, but it may not be the most reliable metric if the classes are imbalanced.
 
+Precision: Precision measures the proportion of true positive predictions out of all positive predictions (both true positives and false positives). It is calculated as the ratio of true positives to the sum of true positives and false positives. Precision is useful when the cost of false positives is high. Higher precision indicates fewer false positives.
+
+Recall: Recall measures the proportion of true positive predictions out of all actual positive instances. It is calculated as the ratio of true positives to the sum of true positives and false negatives. Recall is useful when the cost of false negatives is high. Higher recall indicates fewer false negatives.
+
+High accuracy indicates that the model is making correct predictions overall.
+
+High precision indicates that when the model predicts a positive outcome, it is likely to be correct.
+
+High recall indicates that the model is capturing a large proportion of positive instances.
 
 ```{python}
 #| label: Q4
@@ -170,11 +178,11 @@ print(f"Accuracy: {accuracy:.2f}")
 print(f"Precision: {precision:.2f}")
 print(f"Recall: {recall:.2f}")
 
-f1 = f1_score(y_test, y_pred)
-roc_auc = roc_auc_score(y_test, y_pred)
-mcc = matthews_corrcoef(y_test, y_pred)
+# f1 = f1_score(y_test, y_pred)
+# roc_auc = roc_auc_score(y_test, y_pred)
+# mcc = matthews_corrcoef(y_test, y_pred)
 
-print(f"F1 Score: {f1:.2f}")
-print(f"ROC AUC Score: {roc_auc:.2f}")
-print(f"Matthews Correlation Coefficient: {mcc:.2f}")
+# print(f"F1 Score: {f1:.2f}")
+# print(f"ROC AUC Score: {roc_auc:.2f}")
+# print(f"Matthews Correlation Coefficient: {mcc:.2f}")
 ```
