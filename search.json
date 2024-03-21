@@ -215,7 +215,7 @@
   {
     "objectID": "Projects/project4.html",
     "href": "Projects/project4.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Machine Learning",
     "section": "",
     "text": "I discovered that features such as living area, basement, presence, and construction year are crucial in this prediciton. Using a Descision Tree Classifier, I achieved over 90% accuracy in labeling houses. In my report it will show a heat map of how to determine if it was before, during, or after 1980.\n\n\nRead and format project data\n# Include and execute your code here\ndwellings_ml = pd.read_csv('https://github.com/byuidatascience/data4dwellings/raw/master/data-raw/dwellings_ml/dwellings_ml.csv')",
     "crumbs": [
@@ -226,7 +226,7 @@
   {
     "objectID": "Projects/project4.html#elevator-pitch",
     "href": "Projects/project4.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Machine Learning",
     "section": "",
     "text": "I discovered that features such as living area, basement, presence, and construction year are crucial in this prediciton. Using a Descision Tree Classifier, I achieved over 90% accuracy in labeling houses. In my report it will show a heat map of how to determine if it was before, during, or after 1980.\n\n\nRead and format project data\n# Include and execute your code here\ndwellings_ml = pd.read_csv('https://github.com/byuidatascience/data4dwellings/raw/master/data-raw/dwellings_ml/dwellings_ml.csv')",
     "crumbs": [
@@ -237,9 +237,9 @@
   {
     "objectID": "Projects/project4.html#relationship-between-home-variables-and-before1980",
     "href": "Projects/project4.html#relationship-between-home-variables-and-before1980",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Machine Learning",
     "section": "Relationship Between Home Variables and before1980",
-    "text": "Relationship Between Home Variables and before1980\nCreate 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.\nFrom these charts, we can conclude that certain home variables such as the size of the living area, the presence of a basement, and the year the house was built are important factors in determining whether a house was built before or after 1980. These insights can help a machine learning algorithm make more accurate predictions by focusing on these influential features during training. Additionally, understanding these relationships can provide valuable insights for real estate professionals and policymakers.\n\n\nRead and format data\n# Include and execute your code here\n# Feature selection: select features excluding 'before1980', 'yrbuilt', and 'parcel' columns\nX_pred = dwellings_ml.drop(dwellings_ml.filter(regex='before1980|yrbuilt|parcel').columns, axis=1)\n\n# Target variable\ny_pred = dwellings_ml.filter(regex=\"before1980\")\n\n# Split data into train and test sets\nX_train, X_test, y_train, y_test = train_test_split(X_pred, y_pred, test_size=0.34, random_state=76)\n\n# Initialize and train DecisionTreeClassifier\nclf = tree.DecisionTreeClassifier()\nclf = clf.fit(X_train, y_train)\n\n# Predictions\ny_pred = clf.predict(X_test)\n\n# Predicted probabilities\ny_probs = clf.predict_proba(X_test)\n\nh_subset = dwellings_ml.filter(\n    ['livearea', 'finbsmnt', 'basement', \n    'yearbuilt', 'nocars', 'numbdrm', 'numbaths', 'before1980',\n    'stories', 'yrbuilt']).sample(500)\nchart = px.scatter_matrix(h_subset,\n    dimensions=['livearea', 'finbsmnt', 'basement'],\n    color='before1980'\n)\nchart.update_traces(diagonal_visible=False)\nchart.show()\n\n# Predicted probabilities\ny_probs = clf.predict_proba(X_test)[:, 1]\n\n# Compute ROC curve\nfpr, tpr, thresholds = roc_curve(y_test, y_probs)\n\n# Compute AUC score\nauc_score = roc_auc_score(y_test, y_probs)\n\n# Create a DataFrame for ROC curve\nroc_df = pd.DataFrame({'False Positive Rate': fpr, 'True Positive Rate': tpr})\n\n# Plot ROC curve using Plotly Express\nfig = px.line(roc_df, x='False Positive Rate', y='True Positive Rate', title=f'ROC Curve (AUC={auc_score:.2f})')\nfig.add_shape(type='line', line=dict(dash='dash'), x0=0, x1=1, y0=0, y1=1)\nfig.show()",
+    "text": "Relationship Between Home Variables and before1980\nCreate 2-3 charts that evaluate potential relationships between the home variables and before1980. Explain what you learn from the charts that could help a machine learning algorithm.\nFrom these charts, we can conclude that certain home variables such as the living area, the presence of a basement, and the year the house was built are important factors in determining whether a house was built before or after 1980. In the first chart we can see the heat map of living area, finished basement, and basement compared to the year. The yellow shows the homes before 1980 and the blue shows homes after 1980. The homes that had finished basements were most likley built before 1980. The ROC curve helps us to see how well our guessing is. So in this case we can assume and make a well educated guess if the home was built before or after 1980. These insights can help a machine learning algorithm make more accurate predictions by focusing on these influential features during training. Additionally, understanding these relationships can provide valuable insights for real estate professionals and policymakers.\n\n\nRead and format data\n# Include and execute your code here\n# Feature selection: select features excluding 'before1980', 'yrbuilt', and 'parcel' columns\nX_pred = dwellings_ml.drop(dwellings_ml.filter(regex='before1980|yrbuilt|parcel').columns, axis=1)\n\n# Target variable\ny_pred = dwellings_ml.filter(regex=\"before1980\")\n\n# Split data into train and test sets\nX_train, X_test, y_train, y_test = train_test_split(X_pred, y_pred, test_size=0.34, random_state=76)\n\n# Initialize and train DecisionTreeClassifier\nclf = tree.DecisionTreeClassifier()\nclf = clf.fit(X_train, y_train)\n\n# Predictions\ny_pred = clf.predict(X_test)\n\n# Predicted probabilities\ny_probs = clf.predict_proba(X_test)\n\nh_subset = dwellings_ml.filter(\n    ['livearea', 'finbsmnt', 'basement', \n    'yearbuilt', 'nocars', 'numbdrm', 'numbaths', 'before1980',\n    'stories', 'yrbuilt']).sample(500)\nchart = px.scatter_matrix(h_subset,\n    dimensions=['livearea', 'finbsmnt', 'basement'],\n    color='before1980'\n)\nchart.update_traces(diagonal_visible=False)\nchart.show()\n\n# Predicted probabilities\ny_probs = clf.predict_proba(X_test)[:, 1]\n\n# Compute ROC curve\nfpr, tpr, thresholds = roc_curve(y_test, y_probs)\n\n# Compute AUC score\nauc_score = roc_auc_score(y_test, y_probs)\n\n# Create a DataFrame for ROC curve\nroc_df = pd.DataFrame({'False Positive Rate': fpr, 'True Positive Rate': tpr})\n\n# Plot ROC curve using Plotly Express\nfig = px.line(roc_df, x='False Positive Rate', y='True Positive Rate', title=f'ROC Curve (AUC={auc_score:.2f})')\nfig.add_shape(type='line', line=dict(dash='dash'), x0=0, x1=1, y0=0, y1=1)\nfig.show()",
     "crumbs": [
       "DS250 Projects",
       "Project 4"
@@ -248,9 +248,9 @@
   {
     "objectID": "Projects/project4.html#build-a-classification-model",
     "href": "Projects/project4.html#build-a-classification-model",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Machine Learning",
     "section": "Build a Classification Model",
-    "text": "Build a Classification Model\nBuild a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.\nThe classification model for labeling houses as built “before 1980” or “during or after 1980” achieved over 90% accuracy using a Decision Tree Classifier. Features excluding ‘before1980’, ‘yrbuilt’, and ‘parcel’ columns were selected for training the model, which was then evaluated using metrics such as accuracy, precision, recall, and F1-score. Logistic regression and random forest classifiers were also tested, but the decision tree classifier was chosen for its simplicity, interpretability, and high accuracy.\n\n\nRead and format data\n# Include and execute your code here\nprint(metrics.classification_report(y_pred, y_test))\n\n\n              precision    recall  f1-score   support\n\n           0       0.88      0.85      0.87      2976\n           1       0.91      0.93      0.92      4815\n\n    accuracy                           0.90      7791\n   macro avg       0.90      0.89      0.89      7791\nweighted avg       0.90      0.90      0.90      7791",
+    "text": "Build a Classification Model\nBuild a classification model labeling houses as being built “before 1980” or “during or after 1980”. Your goal is to reach or exceed 90% accuracy. Explain your final model choice (algorithm, tuning parameters, etc) and describe what other models you tried.\nThe classification model for labeling houses as built “before 1980” or “during or after 1980” achieved over 90% accuracy using a Decision Tree Classifier. Features excluding ‘before1980’, ‘yrbuilt’, and ‘parcel’ columns were selected for training the model, which was then evaluated using metrics such as accuracy, precision, recall, and F1-score. Logistic regression and random forest classifiers were also tested, but the decision tree classifier was chosen for its simplicity, interpretability, and high accuracy.\n\n\nRead and format data\n# Include and execute your code here\nprint(metrics.classification_report(y_pred, y_test))\n\n\n              precision    recall  f1-score   support\n\n           0       0.88      0.85      0.87      2970\n           1       0.91      0.93      0.92      4821\n\n    accuracy                           0.90      7791\n   macro avg       0.90      0.89      0.89      7791\nweighted avg       0.90      0.90      0.90      7791",
     "crumbs": [
       "DS250 Projects",
       "Project 4"
@@ -259,7 +259,7 @@
   {
     "objectID": "Projects/project4.html#justify-choice",
     "href": "Projects/project4.html#justify-choice",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Machine Learning",
     "section": "Justify Choice",
     "text": "Justify Choice\nJustify your classification model by discussing the most important features selected by your model. This discussion should include a chart and a description of the features.\nBased on the chart, it is evident that the most important features are ‘livearea’, ‘yearbuilt’, and ‘basement’. ‘Livearea’ refers to the total living area of the house, which could be indicative of the size and layout of the property. ‘Yearbuilt’ directly indicates when the house was constructed and is crucial for determining its age. Lastly, ‘basement’ signifies whether the property has a basement or not, which could influence its construction style and value. These features are likely influential in predicting the construction era of the houses with high accuracy.\n\n\nRead and format data\n# Include and execute your code here\ndf_features = pd.DataFrame(\n    {'f_names': X_train.columns, \n    'f_values': clf.feature_importances_}).sort_values('f_values', ascending = False)\n\nchart = px.bar(df_features.head(10),\n    x='f_values', \n    y='f_names'\n)\n\nchart.update_layout(yaxis={'categoryorder':'total ascending'})",
     "crumbs": [
@@ -270,9 +270,9 @@
   {
     "objectID": "Projects/project4.html#quality-of-classification-model",
     "href": "Projects/project4.html#quality-of-classification-model",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - Machine Learning",
     "section": "Quality of Classification Model",
-    "text": "Quality of Classification Model\nDescribe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.\n\n\nRead and format data\n# Include and execute your code here\naccuracy = metrics.accuracy_score(y_test, y_pred)\nprecision = metrics.precision_score(y_test, y_pred)\nrecall = metrics.recall_score(y_test, y_pred)\n\nprint(f\"Accuracy: {accuracy:.2f}\")\nprint(f\"Precision: {precision:.2f}\")\nprint(f\"Recall: {recall:.2f}\")\n\nf1 = f1_score(y_test, y_pred)\nroc_auc = roc_auc_score(y_test, y_pred)\nmcc = matthews_corrcoef(y_test, y_pred)\n\nprint(f\"F1 Score: {f1:.2f}\")\nprint(f\"ROC AUC Score: {roc_auc:.2f}\")\nprint(f\"Matthews Correlation Coefficient: {mcc:.2f}\")\n\n\nAccuracy: 0.90\nPrecision: 0.93\nRecall: 0.91\nF1 Score: 0.92\nROC AUC Score: 0.90\nMatthews Correlation Coefficient: 0.79",
+    "text": "Quality of Classification Model\nDescribe the quality of your classification model using 2-3 different evaluation metrics. You also need to explain how to interpret each of the evaluation metrics you use.\nAccuracy: Accuracy measures the proportion of correctly classified instances out of the total instances. It is calculated as the ratio of the number of correct predictions to the total number of predictions. A higher accuracy indicates better performance, but it may not be the most reliable metric if the classes are imbalanced.\nPrecision: Precision measures the proportion of true positive predictions out of all positive predictions (both true positives and false positives). It is calculated as the ratio of true positives to the sum of true positives and false positives. Precision is useful when the cost of false positives is high. Higher precision indicates fewer false positives.\nRecall: Recall measures the proportion of true positive predictions out of all actual positive instances. It is calculated as the ratio of true positives to the sum of true positives and false negatives. Recall is useful when the cost of false negatives is high. Higher recall indicates fewer false negatives.\nHigh accuracy indicates that the model is making correct predictions overall.\nHigh precision indicates that when the model predicts a positive outcome, it is likely to be correct.\nHigh recall indicates that the model is capturing a large proportion of positive instances.\n\n\nRead and format data\n# Include and execute your code here\naccuracy = metrics.accuracy_score(y_test, y_pred)\nprecision = metrics.precision_score(y_test, y_pred)\nrecall = metrics.recall_score(y_test, y_pred)\n\nprint(f\"Accuracy: {accuracy:.2f}\")\nprint(f\"Precision: {precision:.2f}\")\nprint(f\"Recall: {recall:.2f}\")\n\n# f1 = f1_score(y_test, y_pred)\n# roc_auc = roc_auc_score(y_test, y_pred)\n# mcc = matthews_corrcoef(y_test, y_pred)\n\n# print(f\"F1 Score: {f1:.2f}\")\n# print(f\"ROC AUC Score: {roc_auc:.2f}\")\n# print(f\"Matthews Correlation Coefficient: {mcc:.2f}\")\n\n\nAccuracy: 0.90\nPrecision: 0.93\nRecall: 0.91",
     "crumbs": [
       "DS250 Projects",
       "Project 4"
@@ -338,7 +338,51 @@
     "href": "Projects/project5.html",
     "title": "Client Report - [Insert Project Title]",
     "section": "",
-    "text": "Uncomment the entire section to use this template\n\n\n\n\n\n\n\n Back to top",
+    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Projects/project5.html#elevator-pitch",
+    "href": "Projects/project5.html#elevator-pitch",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Projects/project5.html#questiontask-1",
+    "href": "Projects/project5.html#questiontask-1",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "QUESTION|TASK 1",
+    "text": "QUESTION|TASK 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Projects/project5.html#questiontask-2",
+    "href": "Projects/project5.html#questiontask-2",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "QUESTION|TASK 2",
+    "text": "QUESTION|TASK 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 5"
+    ]
+  },
+  {
+    "objectID": "Projects/project5.html#questiontask-3",
+    "href": "Projects/project5.html#questiontask-3",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "QUESTION|TASK 3",
+    "text": "QUESTION|TASK 3\nCOPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here",
     "crumbs": [
       "DS250 Projects",
       "Project 5"
